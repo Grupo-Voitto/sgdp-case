@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background: red !important;
-  .customModal{
-    background: 2rem!important;
-  }
+  
 `;
 export const Content = styled.div`
   width: 30vw;

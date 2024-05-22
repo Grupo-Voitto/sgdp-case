@@ -75,10 +75,14 @@ export const Table = styled.table`
     }
   }
   @media(max-width: 480px){
+
     tr {
+      th.p-remove{
+        display: none;
+      }
       td {
         div.outbar {
-          min-width: 5rem;
+          display: none;
         }
       }
     }
