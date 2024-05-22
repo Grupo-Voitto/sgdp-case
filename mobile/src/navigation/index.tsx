@@ -6,6 +6,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from 'src/screens/Home';
 import Projects from 'src/screens/Projects';
 import ProjectDetail from 'src/screens/ProjectDetail';
+import Members from 'src/screens/Members';
 
 const MainDrawerNavigator = createDrawerNavigator();
 const MainStackNavigator = createNativeStackNavigator();
@@ -15,6 +16,7 @@ function MainDrawer() {
     <MainDrawerNavigator.Navigator screenOptions={{headerShown: false}}>
       <MainDrawerNavigator.Screen name="Home" component={Home} />
       <MainDrawerNavigator.Screen name="Projects" component={Projects} />
+      <MainDrawerNavigator.Screen name="Members" component={Members} />
     </MainDrawerNavigator.Navigator>
   );
 }
