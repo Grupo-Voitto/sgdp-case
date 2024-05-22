@@ -79,7 +79,7 @@ export default function ProjectDetail({
   projectInfo = DUMMY_PROJECT,
 }: ProjectDetailProps) {
   return (
-    <ScreenContainer>
+    <ScreenContainer shouldGoBack>
       <ScrollView rowGap={16}>
         <Header
           progressInPercent={projectInfo.progressInPercent}

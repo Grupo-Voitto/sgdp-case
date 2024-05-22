@@ -30,12 +30,13 @@ export default function ProjectsActivityChart({
       <Text style={styles.title}>Atividade</Text>
       <View style={styles.container}>
         <View style={styles.barsContainer}>
-          {data.map(([innerData, outerData]) => {
+          {data.map(([innerData, outerData], index) => {
             const outerBarHeight = outerData + 100;
             const innerBarHeight = (innerData / outerData) * outerBarHeight;
 
             return (
               <View
+                key={index}
                 style={[
                   styles.outerBar,
                   {height: outerBarHeight, backgroundColor: barColors[1]},
