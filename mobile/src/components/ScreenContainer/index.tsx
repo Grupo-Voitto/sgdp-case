@@ -1,18 +1,45 @@
 import React, {PropsWithChildren} from 'react';
-import {View, ViewStyle} from 'react-native';
-import {styles} from './styles';
+import {Image, Pressable, View, ViewStyle} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import type {DrawerNavigationProp} from '@react-navigation/drawer';
 
-interface ScreenContainerProps extends PropsWithChildren {}
+import {styles} from './styles';
+import Box from '../Box';
+import {useNavigation} from '@react-navigation/native';
+
+interface ScreenContainerProps extends PropsWithChildren {
+  shouldGoBack?: boolean;
+}
 
 export default function ScreenContainer(props: ScreenContainerProps) {
+  const navigation = useNavigation<DrawerNavigationProp<{}>>();
+
   const customStyles: ViewStyle = {
     padding: 20,
   };
 
   return (
     <SafeAreaView style={styles.safeContainer}>
-      <View style={[styles.container, customStyles]}>{props?.children}</View>
+      <View style={[styles.container, customStyles]}>
+        <Box padding={12} style={styles.logoContainer}>
+          <Pressable
+            onPress={
+              props?.shouldGoBack ? navigation.goBack : navigation.toggleDrawer
+            }>
+            <Ionicons
+              name={props?.shouldGoBack ? 'arrow-back' : 'menu'}
+              size={32}
+              color="#FFF"
+            />
+          </Pressable>
+          <Image
+            style={styles.logo}
+            source={require('src/assets/logos/construprime_logo.png')}
+          />
+        </Box>
+        {props?.children}
+      </View>
     </SafeAreaView>
   );
 }

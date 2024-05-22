@@ -1,9 +1,11 @@
 import React from 'react';
 import Box from '../Box';
-import {View} from 'react-native';
+import {Pressable, View} from 'react-native';
 import {projectStyles, styles} from './styles';
 import {Project} from 'src/types';
 import Text from 'src/components/Text';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 interface SummaryProjectsCardProps {
   title: string;
@@ -16,6 +18,12 @@ export default function SummaryProjectsCard({
   createdAt = '10/10/2023',
   projects = [],
 }: SummaryProjectsCardProps) {
+  const navigation = useNavigation();
+
+  const handleProjectPress = ({projectID}: {projectID: Project['id']}) => {
+    navigation.navigate('ProjectDetail', {projectID});
+  }
+
   return (
     <Box padding={16}>
       <View style={styles.titleContainer}>
@@ -25,7 +33,10 @@ export default function SummaryProjectsCard({
       <View style={styles.projectsContainer}>
         {projects?.map(project => {
           return (
-            <View key={project.id} style={projectStyles.container}>
+            <Pressable
+              key={project.id}
+              style={projectStyles.container}
+              onPress={() => handleProjectPress({projectID: project.id})}>
               <View style={projectStyles.leftContainer}>
                 <Text style={projectStyles.areaName}>{project.area.name}</Text>
                 <Text style={projectStyles.name}>{project.name}</Text>
@@ -37,7 +48,7 @@ export default function SummaryProjectsCard({
                 ]}>
                 {`+${project.progressInPercent}% concluído`}
               </Text>
-            </View>
+            </Pressable>
           );
         })}
       </View>
