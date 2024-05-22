@@ -1,11 +1,12 @@
 import React, {PropsWithChildren} from 'react';
 
-import {View, ViewStyle} from 'react-native';
+import {StyleSheet, View, ViewStyle} from 'react-native';
 
 interface BoxProps extends PropsWithChildren {
   bgColor?: string;
   padding?: number;
   borderRadius?: number;
+  style?: ViewStyle;
 }
 
 export default function Box(props: BoxProps) {
@@ -15,5 +16,7 @@ export default function Box(props: BoxProps) {
     borderRadius: props?.borderRadius || 12,
   };
 
-  return <View style={boxStyles}>{props?.children}</View>;
+  const customBoxStyle = StyleSheet.flatten([boxStyles, props?.style]);
+
+  return <View style={customBoxStyle}>{props?.children}</View>;
 }

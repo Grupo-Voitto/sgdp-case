@@ -7,7 +7,7 @@ const Navigator = createDrawerNavigator();
 
 export default function MainDrawer() {
   return (
-    <Navigator.Navigator>
+    <Navigator.Navigator screenOptions={{headerShown: false}}>
       <Navigator.Screen name="Home" component={Home} />
       <Navigator.Screen name="Projects" component={Projects} />
     </Navigator.Navigator>
