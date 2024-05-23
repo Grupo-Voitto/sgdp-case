@@ -25,11 +25,14 @@ const DUMMY_PROJECTS: Project[] = [
   },
 ];
 
-export default function InProgressProjectsCard() {
+interface InProgressProjectsCardProps {
+  projects: Project[];
+}
+
+export default function InProgressProjectsCard({
+  projects = [],
+}: InProgressProjectsCardProps) {
   return (
-    <SummaryProjectsCard
-      title="Projetos em andamento"
-      projects={DUMMY_PROJECTS}
-    />
+    <SummaryProjectsCard title="Projetos em andamento" projects={projects} />
   );
 }

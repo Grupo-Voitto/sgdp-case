@@ -40,11 +40,13 @@ export default function SummaryProjectsCard({
               onPress={() => handleProjectPress({projectID: project.id})}>
               <View style={projectStyles.leftContainer}>
                 <ProjectAreaIcon
-                  projectAreaID={project.area.id}
+                  projectAreaID={`${project.area.id}`}
                   color={project.area.color}
                 />
                 <Text style={projectStyles.areaName}>{project.area.name}</Text>
-                <Text style={projectStyles.name}>{project.name}</Text>
+                <View style={projectStyles.nameContainer}>
+                  <Text style={projectStyles.name}>{project.name}</Text>
+                </View>
               </View>
               <Text
                 style={[
