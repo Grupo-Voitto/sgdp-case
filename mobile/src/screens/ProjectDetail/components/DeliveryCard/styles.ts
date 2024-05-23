@@ -5,15 +5,28 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    gap: 16,
   },
   leftContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     columnGap: 12,
   },
-  rightContainer: {},
+  projectName: {
+    fontSize: 16,
+    fontWeight: 500,
+    color: '#FFF',
+  },
+  rightContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  textContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   iconContainer: {
-    backgroundColor: '#FF0000',
     height: 36,
     width: 36,
     justifyContent: 'center',
@@ -21,8 +34,9 @@ export const styles = StyleSheet.create({
     borderRadius: 36,
   },
   text: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 500,
+    flexShrink: 1,
     color: '#FFF',
   },
   dateText: {

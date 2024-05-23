@@ -4,6 +4,8 @@ import {View} from 'react-native';
 import Box from 'src/components/Box';
 import {styles} from './styles';
 import Text from 'src/components/Text';
+import CheckBox from 'src/components/CheckBox';
+import {clampNumber} from 'src/utils';
 
 interface HeaderProps {
   progressInPercent: number;
@@ -18,23 +20,25 @@ export default function Header({
     <Box padding={12}>
       <View style={styles.container}>
         <View style={styles.progressContainer}>
-          <Text
-            style={[
-              styles.progressText,
-              {color: projectAreaColor},
-            ]}>{`+${progressInPercent}% concluído`}</Text>
           <View style={styles.progressBar}>
             <View
               style={[
                 styles.progressInnerBar,
                 {
-                  width: `${progressInPercent || 0}%`,
+                  width: `${clampNumber(0, progressInPercent, 100) || 0}%`,
                   backgroundColor: projectAreaColor,
                 },
               ]}
             />
           </View>
+          <Text
+            style={[
+              styles.progressText,
+              {color: projectAreaColor},
+            ]}>{`${progressInPercent}%`}</Text>
         </View>
+        <CheckBox text="Concluir" color={projectAreaColor} />
+        <CheckBox text="Congelar" />
       </View>
     </Box>
   );

@@ -4,8 +4,8 @@ import {Pressable, View} from 'react-native';
 import {projectStyles, styles} from './styles';
 import {Project} from 'src/types';
 import Text from 'src/components/Text';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
+import ProjectAreaIcon from '../ProjectAreaIcon';
 
 interface SummaryProjectsCardProps {
   title: string;
@@ -21,8 +21,9 @@ export default function SummaryProjectsCard({
   const navigation = useNavigation();
 
   const handleProjectPress = ({projectID}: {projectID: Project['id']}) => {
+    //@ts-ignore
     navigation.navigate('ProjectDetail', {projectID});
-  }
+  };
 
   return (
     <Box padding={16}>
@@ -38,6 +39,10 @@ export default function SummaryProjectsCard({
               style={projectStyles.container}
               onPress={() => handleProjectPress({projectID: project.id})}>
               <View style={projectStyles.leftContainer}>
+                <ProjectAreaIcon
+                  projectAreaID={project.area.id}
+                  color={project.area.color}
+                />
                 <Text style={projectStyles.areaName}>{project.area.name}</Text>
                 <Text style={projectStyles.name}>{project.name}</Text>
               </View>

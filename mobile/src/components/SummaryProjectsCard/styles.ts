@@ -26,6 +26,7 @@ export const projectStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingVertical: 12,
   },
   logo: {},
   name: {
