@@ -7,6 +7,7 @@ class Tarefas extends Model {
         description: DataTypes.STRING,
         status: DataTypes.NUMBER, // 0 para não concluido e 1 para concluido,
         id_membro: DataTypes.NUMBER,
+        id_projeto: DataTypes.NUMBER,
         created_at: {
           type: DataTypes.DATE,
           defaultValue: DataTypes.NOW,

@@ -6,24 +6,26 @@ import TopProjects from '../../components/TopProjects';
 import { local } from '../../services/api';
 
 const Dashboard = () => {
-  const [projetos, setProjetos] = useState([]);
+  const [dashboard, setDashboard] = useState([]);
 
   useEffect(() => {
     async function getProjects() {
-      const project = await local.get("projetos?status=true");
+      const project = await local.get("dashboard-projetos");
       if (project) {
-        console.log("PROJETOS", project.data)
-        setProjetos(project.data)
+        setDashboard(project.data);
       }
     }
 
     getProjects();
   }, [])
+  if (!dashboard) {
+    return <></>
+  }
   return (
     <Container>
       <ContentContruprime />
-      <SectionProjects />
-      <TopProjects />
+      {dashboard?.em_andamento && <SectionProjects andamento={dashboard.em_andamento} />}
+      {dashboard?.top_projetos && <TopProjects top={dashboard.top_projetos} />}
 
     </Container>
   )

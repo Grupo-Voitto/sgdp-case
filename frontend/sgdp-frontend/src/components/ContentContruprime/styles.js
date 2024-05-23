@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap:2rem;
+  justify-content: space-between;
+  gap:1rem;
   p {
     border-radius: 5px;
     background-color: var(--color-background-secondary);
@@ -23,10 +23,24 @@ export const Container = styled.div`
     font-size: 1.2rem;
     color: var(--color-primary);
   }
+  button {
+    padding: 1rem;
+    background:  var(--color-primary);
+    transition: var(--transition);
+    border-radius: 6px;
+    min-width: fit-content;
+    &:hover{
+      transform: scale(1.01);
+    }
+  }
+
   @media(max-width: 1200px){
     flex-direction: column;
     span{
       display: none;
+    }
+    button {
+      width: 100%;
     }
   }
 `;

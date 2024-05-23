@@ -10,6 +10,10 @@ const routes = new Router();
  * Buscar todos os projetos
 */
 routes.get('/projetos', ProjetoController.index);
+/**
+ * Buscar todos os projetos
+*/
+routes.get('/dashboard-projetos', ProjetoController.dashboard);
 
 /**
  * Buscar um projeto
@@ -19,7 +23,7 @@ routes.get('/projetos/:id', ProjetoController.read);
 /**
  * Criar um projeto
 */
-routes.post('/projetos/', ProjetoController.read);
+routes.post('/projetos/', ProjetoController.create);
 
 /**
  * Exclui um projeto
@@ -45,5 +49,9 @@ routes.delete('/projeto/membros', ProjetoMembrosController.delete);
  * Todas as tarefas de um projeto
 */
 routes.get('/projeto/tarefas/:id_projeto', TarefasController.index);
+/**
+ * Criar Tarefa em Um projeto
+*/
+routes.post('/projeto/tarefas', TarefasController.create);
 
 export default routes;

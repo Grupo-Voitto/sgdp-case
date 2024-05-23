@@ -5,6 +5,7 @@ class Areas extends Model {
     super.init(
       {
         description: DataTypes.STRING,
+        color: DataTypes.STRING,
       },
       {
         sequelize,

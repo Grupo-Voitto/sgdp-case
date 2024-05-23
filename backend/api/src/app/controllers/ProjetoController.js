@@ -7,6 +7,11 @@ class ProjetoController {
 
     res.json(projetos);
   }
+  async dashboard(req, res) {
+    const projetos = await PegaTodosProjetos.dashboard();
+
+    res.json(projetos);
+  }
 
   async read(req, res) {
     // TODO

@@ -5,6 +5,7 @@ class Membros extends Model {
     super.init(
       {
         nome: DataTypes.STRING,
+        funcao: DataTypes.STRING,
         created_at: {
           type: DataTypes.DATE,
           defaultValue: DataTypes.NOW,

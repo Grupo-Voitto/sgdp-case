@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-
 `;
 export const Content = styled.div`
   width: 30vw;
@@ -29,10 +28,10 @@ export const Content = styled.div`
   width: 80vw;
  }
 `;
-export const InputText = styled.input`
+export const Input = styled.input`
   border-bottom: 1px solid #9D9FA1;
   padding: 0 0 1rem 0;
   width: 100%;
   margin-top: 2rem;
-
+  color:#9D9FA1;
 `;
