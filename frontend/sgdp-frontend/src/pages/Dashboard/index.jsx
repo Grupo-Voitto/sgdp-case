@@ -15,7 +15,6 @@ const Dashboard = () => {
         setDashboard(project.data);
       }
     }
-
     getProjects();
   }, [])
   if (!dashboard) {

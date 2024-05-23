@@ -21,12 +21,16 @@ const ContentProjectTitle = ({ title, progress, type, data, color }) => {
           </span>
         </Content>
         <ContentProgress color={color}>
-          <p>+{progress}% concluído</p>
           <div className='outbar'><SpanBar progress={progress} color={color}></SpanBar></div>
+          <p>+{progress}%</p>
+          <input type="checkbox" id="concluido" name="concluido" />
+          <label for="concluido">Concluido</label>
+          <input type="checkbox" id="congelado" name="congelado" />
+          <label for="congelado">Congelado</label>
         </ContentProgress>
       </NavContainer>
       <ContainerDateEnd color={color}>
-        <GoAlertFill color="#ffcc00" />
+        <GoAlertFill color="#fff" />
         <p>Data de entrega: </p>
         <strong>{getDataAtualSimple(data)}</strong>
       </ContainerDateEnd>

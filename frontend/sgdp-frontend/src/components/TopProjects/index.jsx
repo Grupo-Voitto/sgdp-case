@@ -12,10 +12,10 @@ const TopProjects = ({ top }) => {
       <Table>
         <thead>
           <tr>
-            <th scope="col" className='p-remove'>#</th>
-            <th scope="col" className='p-remove'>Nome</th>
+            <th scope="col" >#</th>
+            <th scope="col" >Nome</th>
             <th scope="col" className='p-remove'>Progresso</th>
-            <th scope="col" className='p-remove'>%</th>
+            <th scope="col">%</th>
           </tr>
         </thead>
         <tbody>
@@ -25,9 +25,9 @@ const TopProjects = ({ top }) => {
               .map((elem, index) => {
                 return (
                   <tr>
-                    <th scope="row">{index + 1}</th>
+                    <td>{index + 1}</td>
                     <td>{elem.titulo}</td>
-                    <td><div className='outbar'><SpanBar progress={elem.progresso} color={elem.area.color}></SpanBar></div></td>
+                    <td className='outbar'><div className='outbar'><SpanBar progress={elem.progresso} color={elem.area.color}></SpanBar></div></td>
                     <td><Progress color={elem.area.color}>{elem.progresso}%</Progress></td>
                   </tr>
                 )

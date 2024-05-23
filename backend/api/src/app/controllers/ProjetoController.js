@@ -5,16 +5,20 @@ class ProjetoController {
   async index(req, res) {
     const projetos = await PegaTodosProjetos.all();
 
-    res.json(projetos);
+    return res.json(projetos);
   }
   async dashboard(req, res) {
     const projetos = await PegaTodosProjetos.dashboard();
 
-    res.json(projetos);
+    return res.json(projetos);
   }
 
   async read(req, res) {
-    // TODO
+    const {id_projeto} = req.params;
+
+    const projeto = await PegaTodosProjetos.get(id_projeto);
+
+    return res.json(projeto);
   }
 
   async create(req, res) {

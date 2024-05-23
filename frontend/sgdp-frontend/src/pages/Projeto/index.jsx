@@ -5,6 +5,7 @@ import SectionAllProjects from '../../components/SectionAllProjects';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { bodyProject } from '../../utils/constants';
 import MainProject from '../../components/MainProject';
+import { local } from '../../services/api';
 
 const Projetos = () => {
   const { id } = useParams();
@@ -12,18 +13,25 @@ const Projetos = () => {
 
   useEffect(() => {
     // const myParam = searchParams.get('id');
-    setProject(bodyProject.filter(elem => elem.id == id)[0]);
-    console.log("myParam::", id);
+    async function getProject() {
+      if (id) {
+        const payload = await local.get(`/projetos/${id}`);
+        setProject(payload.data);
+      }
+    }
 
-  }, [])
+    getProject();
+  }, [id]);
+
+
   if (!project) {
     return (
-      <p>ok</p>
+      <></>
     );
   }
   return (
     <Container>
-      <ContentProjectTitle type={project.type} progress={project.progresso} title={project.title} color={project.color} data={project.data_entrega} />
+      <ContentProjectTitle type={project.area.description} progress={project.progresso} title={project.titulo} color={project.area.color} data={project.dead_line} />
       <MainProject project={project} />
     </Container>
   )

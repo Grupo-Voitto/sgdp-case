@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 1fr;
   align-items: center;
-  justify-content: space-between;
-  gap:2rem;
+  justify-content: space-evenly;
+  gap:1rem;
   height: 3.5rem;
   @media(max-width: 1200px){
     display:flex;
@@ -22,7 +22,7 @@ export const NavContainer = styled.div`
   justify-content: space-between;
   background-color: var(--color-background-secondary);
   gap:2rem;
-  border-radius: 6px;;
+  border-radius: 6px;
   width: 100%;
   padding: 0 1rem 0 0 ;
   @media(max-width: 1200px){
@@ -49,17 +49,28 @@ export const Content = styled.div`
 `;
 export const ContentProgress = styled.div`
   position: relative;
+  border: 1px solid red;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
   p {
     font-size: .8rem;
     color: ${props => props.color};
     padding: 0 1rem .5rem 1rem;
     text-align:center;
+    padding:0;
+    margin:0;
+  }
+  input {
+    height: 1rem;
+    width: 1rem;
   }
   div.outbar {
     width: 100%;
     min-width: 25rem;
     background: #2B2B36;
-    height: 6px;
+    height: 1rem;
     border-radius: 3px;
     position: relative;
   }
@@ -77,7 +88,7 @@ export const SpanBar= styled.div`
   border-radius: 3px;
   background: ${props => `${props.color}`};
   width: ${props => props.progress || 10}%!important;
-  height: 6px;
+  height: 1rem;
 `;
 export const ContainerDateEnd= styled.div`
   display: flex;
@@ -89,6 +100,8 @@ export const ContainerDateEnd= styled.div`
   padding: 0 1rem;
   width: 100%;
   gap: 1rem;
+  max-width: fit-content;
+  justify-self: flex-end;
   svg {
     min-width: 2rem;
     min-height: 2rem;
@@ -100,6 +113,7 @@ export const ContainerDateEnd= styled.div`
   }
   strong {
     color: ${props => `${props.color}`};
+    font-size: .8rem;
   }
   @media(max-width: 1200px){
     height: 3.5rem;

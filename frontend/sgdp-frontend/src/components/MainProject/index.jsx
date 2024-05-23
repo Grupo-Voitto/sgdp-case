@@ -26,7 +26,7 @@ const MainProject = ({ project }) => {
             {
               project.membros.map(elem => {
                 return (
-                  <MemberComponent color={project.color}>
+                  <MemberComponent color={project.area.color}>
                     <span>{elem.nome}</span>
                     <MdClose />
                   </MemberComponent>
@@ -40,7 +40,6 @@ const MainProject = ({ project }) => {
           <ContentHeader>
             <h3>Tarefas criadas: <strong>{project.tarefas.length}</strong></h3>
             <div>
-              {console.log("PROJECTS", project.tarefas.filter(elem => elem.status === 1).length)}
               <p>Concluidas: <strong>{(project.tarefas.filter(elem => elem.status === 1)).length} de {project.tarefas.length}</strong></p>
             </div>
           </ContentHeader>
@@ -49,16 +48,16 @@ const MainProject = ({ project }) => {
               .sort((a, b) => a.status - b.status)
               .map(elem => {
                 return (
-                  <Task key={elem.id} color={project.color} status={elem.status} onClick={() => alert(`Alterado: id=${elem.id}`)}>
+                  <Task key={elem.id} color={project.area.color} status={elem.status} onClick={() => alert(`Alterado: id=${elem.id}`)}>
                     {elem.status ? <div className='check'><FaCheck /></div> : <div />}
-                    <p>{elem.descricao}</p>
+                    <p>{elem.description}</p>
                     <FaRegTrashAlt color="var(--color-text)" />
                   </Task>
                 )
               })
           }
         </ContentTasks>
-        <ButtonCreate color={project.color} onClick={() => setOpenTask(true)}>Criar nova tarefa</ButtonCreate>
+        <ButtonCreate color={project.area.color} onClick={() => setOpenTask(true)}>Criar nova tarefa</ButtonCreate>
 
       </Container>
       <AddMember open={open} onCloseModal={onCloseModal} />

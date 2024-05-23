@@ -18,7 +18,7 @@ routes.get('/dashboard-projetos', ProjetoController.dashboard);
 /**
  * Buscar um projeto
 */
-routes.get('/projetos/:id', ProjetoController.read);
+routes.get('/projetos/:id_projeto', ProjetoController.read);
 
 /**
  * Criar um projeto

@@ -11,11 +11,14 @@ export const Container = styled.a`
   max-width: 10rem;
   border-radius: 6px;
   padding: 1rem;
+  height: 100%;
+
   h3 {
     color: #fff;
   }
   p {
     color:#E8E8E8;
+    height: 2rem;
   }
   span {
     color: ${props=> props.type ==="TI" ? "#FEB95A": props.type === "Marketing" ? "#A9DFD8":props.type === "Comercial" ? "#F2C8ED":"#20AEF3" };

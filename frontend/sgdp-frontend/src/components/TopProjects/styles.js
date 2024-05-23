@@ -20,15 +20,14 @@ export const Container = styled.div`
 `;
 
 export const Table = styled.table`
+  width: 100%;
   thead{
     width: 100%;
     text-align: left;
     th {
-      padding: 1rem 0;
+      padding: 1rem;
       text-align: left;
     }
-  }
-  tbody {
   }
   tr {
     text-align: left;
@@ -47,46 +46,26 @@ export const Table = styled.table`
       }
     }
   }
+  tbody {
+    tr {
+      td {
+        width: fit-content;
+        text-align:left;
+      }
+    }
+  }
   @media(max-width: 1200px){
-    tr {
-      td {
-        div.outbar {
-          min-width: 15rem;
-        }
-      }
-    }
-  }
-  @media(max-width: 800px){
-    tr {
-      td {
-        div.outbar {
-          min-width: 5rem;
-        }
-      }
-    }
-  }
-  @media(max-width: 650px){
-    tr {
-      td {
-        div.outbar {
-          min-width: 8rem;
-        }
-      }
-    }
-  }
-  @media(max-width: 480px){
-
     tr {
       th.p-remove{
         display: none;
       }
-      td {
-        div.outbar {
-          display: none;
-        }
+      td.outbar{
+        display: none;
+
       }
     }
   }
+
 `;
 export const Progress = styled.p`
   border: 1px solid ${props => props.color};
