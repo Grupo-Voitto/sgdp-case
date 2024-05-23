@@ -7,12 +7,14 @@ interface ButtonProps extends PropsWithChildren {
   mainColor?: string;
   minorColor?: string;
   variant?: 'primary' | 'secondary' | 'tertiary';
+  onPress?: () => void;
 }
 
 export default function Button({
   variant = 'primary',
   mainColor = '#A9DFD8',
   minorColor = '#21222D',
+  onPress = () => {},
   children,
 }: ButtonProps) {
   const customContainerStyle: ViewStyle = {
@@ -33,7 +35,10 @@ export default function Button({
   };
 
   return (
-    <TouchableOpacity activeOpacity={0.8} style={customContainerStyle}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      style={customContainerStyle}
+      onPress={onPress}>
       <Text style={customTextStyle}>{children}</Text>
     </TouchableOpacity>
   );
