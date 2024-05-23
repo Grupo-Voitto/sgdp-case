@@ -6,21 +6,26 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  progressContainer: {},
+  progressContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
   progressText: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 500,
     color: '#FFF',
     textAlign: 'center',
   },
   progressBar: {
-    height: 8,
+    height: 20,
     backgroundColor: '#FFF',
-    borderRadius: 8,
+    borderRadius: 20,
+    width: 80,
   },
   progressInnerBar: {
     backgroundColor: '#CCC',
     height: '100%',
-    borderRadius: 8,
+    borderRadius: 20,
   },
 });

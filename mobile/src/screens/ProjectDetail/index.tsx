@@ -85,13 +85,14 @@ export default function ProjectDetail({
   return (
     <ScreenContainer shouldGoBack>
       <ScrollView rowGap={16}>
+        <DeliveryCard
+          projectInfo={projectInfo}
+          projectAreaColor={projectInfo.area.color}
+          expiresIn={projectInfo.expiresIn}
+        />
         <Header
           progressInPercent={projectInfo.progressInPercent}
           projectAreaColor={projectInfo.area.color}
-        />
-        <DeliveryCard
-          projectAreaColor={projectInfo.area.color}
-          expiresIn={projectInfo.expiresIn}
         />
         <ProjectInfoCard projectInfo={projectInfo} />
       </ScrollView>
