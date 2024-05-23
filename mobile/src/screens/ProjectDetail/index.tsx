@@ -23,18 +23,22 @@ const DUMMY_PROJECT: ProjectInfo = {
     {
       id: 'renata',
       name: 'Renata Weber',
+      role: 'Gerente de Projetos',
     },
     {
       id: 'henrico',
       name: 'Henrico Piubello',
+      role: 'Desenvolvedor',
     },
     {
       id: 'diego',
       name: 'Diego Miguel',
+      role: 'Desenvolvedor',
     },
     {
       id: 'marcelo',
       name: 'Marcelo Alvarenga',
+      role: 'Designer',
     },
   ],
   tasks: [

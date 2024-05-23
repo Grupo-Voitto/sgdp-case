@@ -26,7 +26,12 @@ export default function ProjectInfoCard(props: ProjectInfoCardProps) {
           <Text style={styles.title}>Time: </Text>
           {props.projectInfo.members.map(member => {
             return (
-              <View style={styles.memberChip} key={member.id}>
+              <View
+                style={[
+                  styles.memberChip,
+                  {backgroundColor: props.projectInfo.area.color},
+                ]}
+                key={member.id}>
                 <Text style={styles.memberName}>{member.name}</Text>
                 <Pressable style={styles.memberIcon}>
                   <Ionicons name="close" size={28} color="#000" />
