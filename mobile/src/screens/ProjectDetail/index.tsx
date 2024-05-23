@@ -23,18 +23,22 @@ const DUMMY_PROJECT: ProjectInfo = {
     {
       id: 'renata',
       name: 'Renata Weber',
+      role: 'Gerente de Projetos',
     },
     {
       id: 'henrico',
       name: 'Henrico Piubello',
+      role: 'Desenvolvedor',
     },
     {
       id: 'diego',
       name: 'Diego Miguel',
+      role: 'Desenvolvedor',
     },
     {
       id: 'marcelo',
       name: 'Marcelo Alvarenga',
+      role: 'Designer',
     },
   ],
   tasks: [
@@ -81,13 +85,14 @@ export default function ProjectDetail({
   return (
     <ScreenContainer shouldGoBack>
       <ScrollView rowGap={16}>
+        <DeliveryCard
+          projectInfo={projectInfo}
+          projectAreaColor={projectInfo.area.color}
+          expiresIn={projectInfo.expiresIn}
+        />
         <Header
           progressInPercent={projectInfo.progressInPercent}
           projectAreaColor={projectInfo.area.color}
-        />
-        <DeliveryCard
-          projectAreaColor={projectInfo.area.color}
-          expiresIn={projectInfo.expiresIn}
         />
         <ProjectInfoCard projectInfo={projectInfo} />
       </ScrollView>
