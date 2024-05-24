@@ -1,4 +1,4 @@
-package br.com.sgp.contruprime
+package br.com.sgp.construprime
 
 import com.facebook.react.views.text.ReactFontManager
 
