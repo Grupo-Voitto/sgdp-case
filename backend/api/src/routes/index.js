@@ -3,6 +3,7 @@ import { Router } from 'express';
 import ProjetoController from '../app/controllers/ProjetoController';
 import ProjetoMembrosController from '../app/controllers/ProjetoMembrosController';
 import TarefasController from '../app/controllers/TarefasController';
+import MembrosController from '../app/controllers/MembrosController';
 
 const routes = new Router();
 
@@ -23,7 +24,11 @@ routes.get('/projetos/:id_projeto', ProjetoController.read);
 /**
  * Criar um projeto
 */
-routes.post('/projetos/', ProjetoController.create);
+routes.post('/projetos', ProjetoController.create);
+/**
+ * Edita um projeto
+*/
+routes.put('/projetos/:id', ProjetoController.update);
 
 /**
  * Exclui um projeto
@@ -53,5 +58,9 @@ routes.get('/projeto/tarefas/:id_projeto', TarefasController.index);
  * Criar Tarefa em Um projeto
 */
 routes.post('/projeto/tarefas', TarefasController.create);
+/**
+ * Busca todos os membros da plataforma
+*/
+routes.get('/membros', MembrosController.index);
 
 export default routes;

@@ -1,42 +1,60 @@
 import React from 'react';
-import { Container, SpanBar, ContentProgress, Content, NavContainer, ContainerDateEnd } from './styles';
+import { Container, SpanBar, ContentProgress, InputCheck, Content, NavContainer, ContainerDateEnd } from './styles';
 import { getDataAtualSimple } from '../../utils';
 import { GrTechnology } from 'react-icons/gr';
 import { SiMarketo } from 'react-icons/si';
 import { GoAlertFill } from 'react-icons/go';
-import { FaMoneyCheckAlt, FaPeopleCarry } from 'react-icons/fa';
+import { FaMoneyCheckAlt, FaPeopleCarry, FaCheck } from 'react-icons/fa';
+import { local } from '../../services/api';
 
-const ContentProjectTitle = ({ title, progress, type, data, color }) => {
+const ContentProjectTitle = ({ project, setProject }) => {
+
+
+  async function changeState(state) {
+    const payload = await local.put(`/projetos/${project.id_project}`, {
+      data: {
+        status: state
+      }
+    });
+    if (payload.data) {
+      console.log("payload", payload.data);
+      setProject(payload.data);
+    }
+  }
+
   return (
     <Container>
       <NavContainer>
         <Content>
           <span>
             {
-              type === "TI" ? <GrTechnology color="#FEB95A" /> :
-                type === "Marketing" ? <SiMarketo color="#A9DFD8" /> :
-                  type === "Comercial" ? <FaMoneyCheckAlt color="#F2C8ED" /> : <FaPeopleCarry color="#20AEF3" />
+              project.area.description === "TI" ? <GrTechnology color="#FEB95A" /> :
+                project.area.description === "Marketing" ? <SiMarketo color="#A9DFD8" /> :
+                  project.area.description === "Comercial" ? <FaMoneyCheckAlt color="#F2C8ED" /> : <FaPeopleCarry color="#20AEF3" />
             }
-            <p>{title}</p>
           </span>
+          <p>{project.titulo}</p>
         </Content>
-        <ContentProgress color={color}>
-          <div className='outbar'><SpanBar progress={progress} color={color}></SpanBar></div>
-          <p>+{progress}%</p>
-          <input type="checkbox" id="concluido" name="concluido" />
-          <label for="concluido">Concluido</label>
-          <input type="checkbox" id="congelado" name="congelado" />
-          <label for="congelado">Congelado</label>
+        { }
+        <ContentProgress color={project.area.color}>
+          <div className='outbar'><SpanBar progress={project.progresso} color={project.area.color}></SpanBar></div>
+          <p>+{project.progresso}%</p>
+          <InputCheck color={project.color} onClick={() => this.changeState(project.status == 2 ? 1 : 2)}>
+            <div className='check'>{project.status == 2 && <FaCheck color={project.area.color} />}</div>
+            <p>Concluir</p>
+          </InputCheck>
+          <InputCheck onClick={() => changeState(project.status == 0 ? 1 : 0)} color="#E8E8E8">
+            <div className='check'>{project.status == 0 && <FaCheck color={"#E8E8E8"} />}</div>
+            <p>Congelar</p>
+          </InputCheck>
         </ContentProgress>
       </NavContainer>
-      <ContainerDateEnd color={color}>
+      <ContainerDateEnd color={project.color}>
         <GoAlertFill color="#fff" />
         <p>Data de entrega: </p>
-        <strong>{getDataAtualSimple(data)}</strong>
+        <strong>{getDataAtualSimple(project.data)}</strong>
       </ContainerDateEnd>
-
     </Container>
   )
-}
-
+};
 export default ContentProjectTitle;

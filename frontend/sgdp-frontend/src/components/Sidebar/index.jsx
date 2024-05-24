@@ -9,10 +9,9 @@ const Sidebar = () => {
   useEffect(() => {
     if (window.location?.href) {
       const href = window.location.pathname;
-      console.log("HREF::", href)
-      if (href === "/projetos") setActive("projetos");
+      if (href === "/projetoss") setActive("projetos");
       if (href === "/") setActive("dashboard");
-      if (href === "/pessoas") setActive("pessoas");
+      if (href === "/membros") setActive("membros");
     }
   }, [])
 
@@ -22,9 +21,9 @@ const Sidebar = () => {
         <RiHome2Fill />
         <span>Dashboard</span>
       </LinkButton>
-      <LinkButton href="/pessoas" active={active === "pessoas"}>
+      <LinkButton href="/membros" active={active === "membros"}>
         <FaUserAlt />
-        <span>Pessoas</span>
+        <span>Membros</span>
       </LinkButton>
       <LinkButton href="/projetos" active={active === "projetos"}>
         <BsBarChartFill />

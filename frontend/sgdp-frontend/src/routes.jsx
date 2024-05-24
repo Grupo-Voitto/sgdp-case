@@ -4,6 +4,7 @@ import { Route, Routes as RoutesDom, BrowserRouter } from "react-router-dom";
 import Projetos from "./pages/Projetos";
 import Projeto from "./pages/Projeto";
 import Dashboard from "./pages/Dashboard";
+import Membros from "./pages/Membros";
 // import Sobre from "./Sobre";
 // import Usuario from "./Usuario";
 
@@ -14,6 +15,7 @@ function Routes() {
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/projetos" element={<Projetos />} />
                 <Route path="/projetos/:id" element={<Projeto />} />
+                <Route path="/membros" element={<Membros />} />
                 {/* <Route component = { Sobre }  path="/sobre" /> */}
                 {/* <Route component = { Usuario }  path="/usuario" /> */}
 

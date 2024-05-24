@@ -18,7 +18,7 @@ const SectionProjects = ({ andamento }) => {
         <ContentProjects>
           {andamento.map((elem, index) => {
             return (
-              <ProjectCard title={elem.titulo} type={elem.area.description} progress={elem.progresso} key={index} />
+              <ProjectCard title={elem.titulo} id={elem.id_projeto} type={elem.area.description} progress={elem.progresso} key={index} />
             )
           })}
         </ContentProjects>

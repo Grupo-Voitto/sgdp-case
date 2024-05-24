@@ -40,7 +40,25 @@ class ProjetoController {
   }
 
   async update(req, res) {
-    // TODO
+    const {id} = req.params;
+    const {data} = req.body;
+
+    if(!data || !id){
+      throw new Error("Dados ausentes");
+    }
+    
+    const projeto = await Projeto.findByPk(id);
+    
+    if(!projeto){
+      throw new Error("Projeto não existe");
+    }
+
+
+    const create_project = await projeto.update({
+      ...data
+    });
+
+    return res.json(create_project);
   }
 
   async delete(req, res) {

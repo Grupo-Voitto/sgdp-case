@@ -60,7 +60,7 @@ const MainProject = ({ project }) => {
         <ButtonCreate color={project.area.color} onClick={() => setOpenTask(true)}>Criar nova tarefa</ButtonCreate>
 
       </Container>
-      <AddMember open={open} onCloseModal={onCloseModal} />
+      <AddMember open={open} onCloseModal={onCloseModal} id_projeto={project.id_projeto} membros={project.membros} />
       <AddTask open={openTask} onCloseModal={onCloseModalTask} />
     </>
   )

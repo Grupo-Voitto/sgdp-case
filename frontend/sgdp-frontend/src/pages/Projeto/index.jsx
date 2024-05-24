@@ -16,6 +16,7 @@ const Projetos = () => {
     async function getProject() {
       if (id) {
         const payload = await local.get(`/projetos/${id}`);
+        console.log("payload", payload.data);
         setProject(payload.data);
       }
     }
@@ -31,8 +32,8 @@ const Projetos = () => {
   }
   return (
     <Container>
-      <ContentProjectTitle type={project.area.description} progress={project.progresso} title={project.titulo} color={project.area.color} data={project.dead_line} />
-      <MainProject project={project} />
+      <ContentProjectTitle project={project} setProject={setProject} />
+      <MainProject project={project} setProject={setProject} />
     </Container>
   )
 }

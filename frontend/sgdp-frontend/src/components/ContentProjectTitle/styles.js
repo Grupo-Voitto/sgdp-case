@@ -27,6 +27,7 @@ export const NavContainer = styled.div`
   padding: 0 1rem 0 0 ;
   @media(max-width: 1200px){
     height: 3.5rem;
+    gap:.5rem;
   }
 `;
 
@@ -40,20 +41,39 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    gap: .4rem;
     span {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      gap: 1rem;
+      width: fit-content;
+      padding:0;
+      height:0;
+      svg {
+        width: 2rem;
+        height: 2rem;
+      }
     }
+
+  @media(max-width: 1200px){
+    span {
+      svg {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+    p{
+      font-size:.8rem;
+    }
+
+  }
 `;
 export const ContentProgress = styled.div`
   position: relative;
-  border: 1px solid red;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:.5rem;
+  gap: 1rem;
   p {
     font-size: .8rem;
     color: ${props => props.color};
@@ -62,22 +82,20 @@ export const ContentProgress = styled.div`
     padding:0;
     margin:0;
   }
-  input {
-    height: 1rem;
-    width: 1rem;
-  }
   div.outbar {
     width: 100%;
-    min-width: 25rem;
-    background: #2B2B36;
+    min-width: 15rem;
+    background: #F1F2F7;
     height: 1rem;
     border-radius: 3px;
     position: relative;
   }
   @media(max-width: 1200px){
+    gap: .5rem;
     div.outbar {
-    min-width: 15rem;
-  }
+      height:.5rem;
+      min-width: 2rem;
+    }
   }
 `;
 
@@ -89,6 +107,10 @@ export const SpanBar= styled.div`
   background: ${props => `${props.color}`};
   width: ${props => props.progress || 10}%!important;
   height: 1rem;
+  @media(max-width: 1200px){
+    height: .5rem;
+
+  }
 `;
 export const ContainerDateEnd= styled.div`
   display: flex;
@@ -118,5 +140,30 @@ export const ContainerDateEnd= styled.div`
   @media(max-width: 1200px){
     height: 3.5rem;
     justify-content:center;
+  }
+`;
+
+export const InputCheck = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .2rem;
+  div {
+    width: 1rem;
+    height: 1rem;
+    background: transparent;
+    border: 2px solid ${props => props.color};
+    border-radius: 5px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    padding: 0;
+    margin:0;
+  }
+  p {
+    color:${props => props.color};
+  }
+  &:hover{
+    cursor: pointer;
   }
 `;
