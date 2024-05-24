@@ -9,18 +9,26 @@ class PegaTodosProjetos {
 
     const tarefas_projeto = await Promise.all(
       projetos.map(async elem => {
-        const pega_tarefa = await Tarefas.findAll({
-          where:{
-            id_projeto: elem.id
-          }
-        })
+        const [pega_tarefa, area_projeto] = await Promise.all([
+          Tarefas.findAll({
+            where:{
+              id_projeto: elem.id
+            },
+          }),
+          Areas.findOne({
+            where: {
+              id: elem.area
+            }
+          })
+        ])
 
         return {
           id_projeto: elem.id,
+          titulo: elem.title,
           total_tarefas: pega_tarefa.length,
           tarefas_concluidas: (pega_tarefa.filter(item => item.status != 0)).length,
           status: elem.status,
-          area: elem.area
+          area: area_projeto
         }
       })
     );
