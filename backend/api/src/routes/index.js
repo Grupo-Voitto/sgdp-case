@@ -23,7 +23,7 @@ routes.get('/projetos/:id', ProjetoController.read);
 /**
  * Criar um projeto
 */
-routes.post('/projetos/', ProjetoController.create);
+routes.post('/projetos', ProjetoController.create);
 
 /**
  * Exclui um projeto

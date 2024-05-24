@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   logo: {
-    width: 160,
+    width: 140,
     resizeMode: 'contain',
     aspectRatio: 6.4,
   },
