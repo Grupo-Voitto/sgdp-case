@@ -1,18 +1,16 @@
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-type KnownProjectAreaID = 'ti' | 'marketing' | 'rh' | 'comercial';
-
 const renderIconByProjectAreaID = ({
   projectAreaID,
   size = 24,
   color = '#FFF',
 }: {
-  projectAreaID: KnownProjectAreaID | string | number;
+  projectAreaID?: string | number;
   size?: number;
   color?: string;
 }) => {
-  switch (projectAreaID) {
+  switch (`${projectAreaID}`) {
     case 'ti':
     case '1': {
       return <Ionicons name="analytics" size={size} color={color} />;
@@ -36,7 +34,7 @@ const renderIconByProjectAreaID = ({
 };
 
 interface ProjectAreaIconProps {
-  projectAreaID: KnownProjectAreaID | string;
+  projectAreaID?: string | number;
   size?: number;
   color?: string;
 }

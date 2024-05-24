@@ -6,15 +6,18 @@ import {styles} from './styles';
 import Text from 'src/components/Text';
 import CheckBox from 'src/components/CheckBox';
 import {clampNumber} from 'src/utils';
+import {ProjectStatus} from 'src/types';
 
 interface HeaderProps {
-  progressInPercent: number;
-  projectAreaColor: string;
+  progressInPercent?: number;
+  projectAreaColor?: string;
+  status: ProjectStatus;
 }
 
 export default function Header({
   progressInPercent = 10,
   projectAreaColor = '#CCC',
+  status = ProjectStatus.IN_PROGRESS,
 }: HeaderProps) {
   return (
     <Box padding={12}>
@@ -37,8 +40,12 @@ export default function Header({
               {color: projectAreaColor},
             ]}>{`${progressInPercent}%`}</Text>
         </View>
-        <CheckBox text="Concluir" color={projectAreaColor} />
-        <CheckBox text="Congelar" />
+        <CheckBox
+          checked={status === ProjectStatus.FINISHED}
+          text="Concluir"
+          color={projectAreaColor}
+        />
+        <CheckBox checked={status === ProjectStatus.FROZEN} text="Congelar" />
       </View>
     </Box>
   );
