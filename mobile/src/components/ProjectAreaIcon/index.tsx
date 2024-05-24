@@ -14,19 +14,19 @@ const renderIconByProjectAreaID = ({
 }) => {
   switch (projectAreaID) {
     case 'ti':
-    case 1: {
+    case '1': {
       return <Ionicons name="analytics" size={size} color={color} />;
     }
     case 'comercial':
-    case 4: {
+    case '4': {
       return <Ionicons name="card" size={size} color={color} />;
     }
     case 'marketing':
-    case 2: {
+    case '2': {
       return <Ionicons name="images" size={size} color={color} />;
     }
     case 'rh':
-    case 3: {
+    case '3': {
       return <Ionicons name="people" size={size} color={color} />;
     }
     default: {
