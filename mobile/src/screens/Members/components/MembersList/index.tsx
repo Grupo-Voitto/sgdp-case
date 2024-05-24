@@ -28,36 +28,11 @@ const MemberItemDivider = () => (
   <HorizontalDivider stroke={1} marginBottom={12} marginTop={12} />
 );
 
-const DUMMY_MEMBERS: ProjectMember[] = [
-  {
-    id: 'renata',
-    name: 'Renata Weber',
-    role: 'Gerente de Projeto',
-  },
-  {
-    id: 'diego',
-    name: 'Diego Miguel',
-    role: 'Desenvolvedor',
-  },
-  {
-    id: 'henrico',
-    name: 'Henrico Piubello',
-    role: 'Desenvolvedor',
-  },
-  {
-    id: 'marcelo',
-    name: 'Marcelo Alvarenga',
-    role: 'Designer',
-  },
-];
-
 interface MembersListProps {
   members?: ProjectMember[];
 }
 
-export default function MembersList({
-  members = DUMMY_MEMBERS,
-}: MembersListProps) {
+export default function MembersList({members = []}: MembersListProps) {
   return (
     <Box padding={16}>
       <View style={styles.container}>
