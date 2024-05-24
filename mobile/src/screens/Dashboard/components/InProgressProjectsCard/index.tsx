@@ -7,7 +7,7 @@ interface InProgressProjectsCardProps {
 }
 
 export default function InProgressProjectsCard({
-  projects,
+  projects = [],
 }: InProgressProjectsCardProps) {
   return (
     <SummaryProjectsCard title="Projetos em andamento" projects={projects} />

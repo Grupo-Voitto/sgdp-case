@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     flexShrink: 1,
   },
   progressCell: {
-    width: 36,
+    width: 48,
     textAlign: 'center',
   },
   orderCell: {

@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "br.com.sgp.contruprime"
+    namespace "br.com.sgp.construprime"
     defaultConfig {
-        applicationId "br.com.sgp.contruprime"
+        applicationId "br.com.sgp.construprime"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

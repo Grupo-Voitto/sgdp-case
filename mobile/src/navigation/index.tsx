@@ -7,7 +7,7 @@ import {
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import Home from 'src/screens/Home';
+import Dashboard from 'src/screens/Dashboard';
 import Projects from 'src/screens/Projects';
 import ProjectDetail from 'src/screens/ProjectDetail';
 import Members from 'src/screens/Members';
@@ -56,7 +56,7 @@ function MainDrawer() {
   return (
     <MainDrawerNavigator.Navigator screenOptions={drawerStyleConfig}>
       <MainDrawerNavigator.Screen
-        name="Home"
+        name="Dahsboard"
         options={{
           drawerLabel: 'Dashboard',
           drawerIcon: props =>
@@ -66,7 +66,7 @@ function MainDrawer() {
               inactiveIconName: 'home-outline',
             }),
         }}
-        component={Home}
+        component={Dashboard}
       />
       <MainDrawerNavigator.Screen
         name="Members"

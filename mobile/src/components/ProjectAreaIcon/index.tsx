@@ -8,21 +8,25 @@ const renderIconByProjectAreaID = ({
   size = 24,
   color = '#FFF',
 }: {
-  projectAreaID: KnownProjectAreaID | string;
+  projectAreaID: KnownProjectAreaID | string | number;
   size?: number;
   color?: string;
 }) => {
   switch (projectAreaID) {
-    case 'ti': {
+    case 'ti':
+    case '1': {
       return <Ionicons name="analytics" size={size} color={color} />;
     }
-    case 'comercial': {
+    case 'comercial':
+    case '4': {
       return <Ionicons name="card" size={size} color={color} />;
     }
-    case 'marketing': {
+    case 'marketing':
+    case '2': {
       return <Ionicons name="images" size={size} color={color} />;
     }
-    case 'rh': {
+    case 'rh':
+    case '3': {
       return <Ionicons name="people" size={size} color={color} />;
     }
     default: {

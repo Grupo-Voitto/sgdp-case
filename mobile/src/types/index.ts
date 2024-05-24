@@ -1,24 +1,24 @@
 export interface ProjectArea {
-  id: string;
+  id: string | number;
   name: string;
   color: string;
 }
 
 export interface Project {
-  id: string;
+  id: string | number;
   name: string;
   progressInPercent: number;
   area: ProjectArea;
 }
 
 export interface ProjectMember {
-  id: string;
+  id: string | number;
   name: string;
   role: string;
 }
 
 export interface ProjectTask {
-  id: string;
+  id: string | number;
   description: string;
   done: boolean;
 }

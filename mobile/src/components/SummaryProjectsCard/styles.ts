@@ -29,6 +29,9 @@ export const projectStyles = StyleSheet.create({
     paddingVertical: 12,
   },
   logo: {},
+  nameContainer: {
+    flexShrink: 1,
+  },
   name: {
     fontSize: 12,
     fontWeight: '500',
@@ -43,6 +46,7 @@ export const projectStyles = StyleSheet.create({
     flexDirection: 'row',
     columnGap: 8,
     alignItems: 'center',
+    flexShrink: 1,
   },
   progress: {
     fontSize: 12,

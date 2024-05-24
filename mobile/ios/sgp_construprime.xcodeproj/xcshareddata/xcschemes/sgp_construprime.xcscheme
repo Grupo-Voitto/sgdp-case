@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "sgp_contruprime.app"
-               BlueprintName = "sgp_contruprime"
-               ReferencedContainer = "container:sgp_contruprime.xcodeproj">
+               BuildableName = "sgp_construprime.app"
+               BlueprintName = "sgp_construprime"
+               ReferencedContainer = "container:sgp_construprime.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "sgp_contruprimeTests.xctest"
-               BlueprintName = "sgp_contruprimeTests"
-               ReferencedContainer = "container:sgp_contruprime.xcodeproj">
+               BuildableName = "sgp_construprimeTests.xctest"
+               BlueprintName = "sgp_construprimeTests"
+               ReferencedContainer = "container:sgp_construprime.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "sgp_contruprime.app"
-            BlueprintName = "sgp_contruprime"
-            ReferencedContainer = "container:sgp_contruprime.xcodeproj">
+            BuildableName = "sgp_construprime.app"
+            BlueprintName = "sgp_construprime"
+            ReferencedContainer = "container:sgp_construprime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "sgp_contruprime.app"
-            BlueprintName = "sgp_contruprime"
-            ReferencedContainer = "container:sgp_contruprime.xcodeproj">
+            BuildableName = "sgp_construprime.app"
+            BlueprintName = "sgp_construprime"
+            ReferencedContainer = "container:sgp_construprime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
