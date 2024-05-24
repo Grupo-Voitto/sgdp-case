@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface sgp_contruprimeTests : XCTestCase
+@interface sgp_construprimeTests : XCTestCase
 
 @end
 
-@implementation sgp_contruprimeTests
+@implementation sgp_construprimeTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {
