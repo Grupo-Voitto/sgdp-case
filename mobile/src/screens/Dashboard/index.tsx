@@ -60,7 +60,7 @@ export default function Dahsboard() {
       <ScrollView rowGap={16}>
         <InProgressProjectsCard projects={inProgressProjects} />
         <ProjectsActivityChart />
-        <TopProjects projects={topProjects}/>
+        <TopProjects projects={topProjects} />
       </ScrollView>
     </ScreenContainer>
   );
