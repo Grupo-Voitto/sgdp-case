@@ -9,9 +9,9 @@ import {ProjectInfo} from 'src/types';
 import ProjectAreaIcon from 'src/components/ProjectAreaIcon';
 
 interface DeliveryCardProps {
-  expiresIn: string;
-  projectAreaColor: string;
-  projectInfo: ProjectInfo;
+  expiresIn?: string;
+  projectAreaColor?: string;
+  projectInfo?: ProjectInfo;
 }
 
 export default function DeliveryCard(props: DeliveryCardProps) {
@@ -20,11 +20,11 @@ export default function DeliveryCard(props: DeliveryCardProps) {
       <View style={styles.container}>
         <View style={styles.leftContainer}>
           <ProjectAreaIcon
-            projectAreaID={props.projectInfo.area.id}
-            color={props.projectInfo.area.color}
+            projectAreaID={props?.projectInfo?.area?.id}
+            color={props?.projectInfo?.area.color}
             size={28}
           />
-          <Text style={styles.projectName}>{props.projectInfo.name}</Text>
+          <Text style={styles.projectName}>{props?.projectInfo?.name}</Text>
         </View>
         <View style={styles.rightContainer}>
           <View style={styles.textContainer}>

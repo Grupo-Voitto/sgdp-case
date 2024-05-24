@@ -4,11 +4,18 @@ export interface ProjectArea {
   color: string;
 }
 
+export enum ProjectStatus {
+  FROZEN = 0,
+  IN_PROGRESS = 1,
+  FINISHED = 2,
+}
+
 export interface Project {
   id: string | number;
   name: string;
   progressInPercent: number;
   area: ProjectArea;
+  status: ProjectStatus;
 }
 
 export interface ProjectMember {
@@ -26,6 +33,4 @@ export interface ProjectTask {
 export interface ProjectInfo extends Project {
   expiresIn: string;
   description: string;
-  members: ProjectMember[];
-  tasks: ProjectTask[];
 }
