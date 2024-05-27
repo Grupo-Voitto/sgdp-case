@@ -1,24 +1,27 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState, useCallback} from 'react';
 
 import ScreenContainer from 'src/components/ScreenContainer';
 import MembersList from './components/MembersList';
 import {MembersAPI} from 'src/services/api';
 import {ProjectMember} from 'src/types';
+import {useFocusEffect} from '@react-navigation/native';
 
 export default function Members() {
   const [members, setMembers] = useState<
     MembersAPI.GetMembersResponse | undefined
   >();
 
-  useEffect(() => {
-    const getMembers = async () => {
-      const response = await MembersAPI.getMembers();
+  const getMembers = useCallback(async () => {
+    const response = await MembersAPI.getMembers();
 
-      setMembers(response);
-    };
-
-    getMembers();
+    setMembers(response);
   }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      getMembers();
+    }, [getMembers]),
+  );
 
   const normalizedMembers: ProjectMember[] =
     members?.map(member => ({
@@ -27,9 +30,16 @@ export default function Members() {
       role: member.funcao,
     })) || [];
 
+  const handleCreateNewMember = () => {
+    getMembers();
+  };
+
   return (
     <ScreenContainer>
-      <MembersList members={normalizedMembers} />
+      <MembersList
+        members={normalizedMembers}
+        onCreateNewMember={handleCreateNewMember}
+      />
     </ScreenContainer>
   );
 }

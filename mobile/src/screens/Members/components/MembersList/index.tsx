@@ -31,13 +31,23 @@ const MemberItemDivider = () => (
 
 interface MembersListProps {
   members?: ProjectMember[];
+  onCreateNewMember?: () => void;
 }
 
-export default function MembersList({members = []}: MembersListProps) {
+export default function MembersList({
+  members = [],
+  onCreateNewMember = () => {},
+}: MembersListProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const toggleModalVisibility = () => {
     setIsModalVisible(prev => !prev);
+  };
+
+  const handleCreateNewMember = () => {
+    onCreateNewMember();
+
+    toggleModalVisibility();
   };
 
   return (
@@ -68,6 +78,7 @@ export default function MembersList({members = []}: MembersListProps) {
       <CreateMemberModal
         visible={isModalVisible}
         onClose={toggleModalVisibility}
+        onSubmit={handleCreateNewMember}
       />
     </Box>
   );

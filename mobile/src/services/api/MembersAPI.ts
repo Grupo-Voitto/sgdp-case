@@ -25,8 +25,8 @@ export const createMember = async ({
   name,
 }: CreateMemberParams): Promise<CreateMemberResponse> => {
   const response = await baseAPI.post('/membros', {
-    name,
-    role,
+    nome: name,
+    funcao: role,
   });
 
   return response.data;
