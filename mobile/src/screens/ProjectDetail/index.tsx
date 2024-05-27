@@ -42,7 +42,7 @@ export default function ProjectDetail({route}: NativeStackScreenProps<{}>) {
         description: response.descricao,
         expiresIn: response.dead_line,
         progressInPercent: +response.progresso,
-        status: status,
+        status: response.status,
         area: {
           id: response.area.id,
           name: response.area.description,
@@ -71,7 +71,13 @@ export default function ProjectDetail({route}: NativeStackScreenProps<{}>) {
     };
 
     getProject();
-  }, [projectID, status]);
+  }, [projectID]);
+
+  const handleChangeStatus = (newStatus: ProjectStatus) => {
+    setStatus(newStatus);
+
+    ProjectsAPI.changeProjectStatus({projectID, status: newStatus});
+  };
 
   if (loading) {
     return <FullScreenLoader text="Carregando projeto ..." />;
@@ -89,6 +95,7 @@ export default function ProjectDetail({route}: NativeStackScreenProps<{}>) {
           progressInPercent={project?.progressInPercent}
           projectAreaColor={project?.area.color}
           status={status}
+          onChangeStatus={handleChangeStatus}
         />
         <ProjectInfoCard
           projectInfo={project}

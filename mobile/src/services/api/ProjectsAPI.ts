@@ -1,3 +1,4 @@
+import {ProjectStatus} from 'src/types';
 import {baseAPI} from './baseAPI';
 
 export interface GetProjectsResponse {
@@ -84,6 +85,26 @@ export const getProjectDetail = async ({
   projectID: number;
 }): Promise<GetProjectDetailResponse> => {
   const response = await baseAPI.get(`/projetos/${projectID}`);
+
+  return response.data;
+};
+
+export interface ChangeProjectStatusParams {
+  projectID: number;
+  status: ProjectStatus;
+}
+
+export interface ChangeProjectStatusResponse {}
+
+export const changeProjectStatus = async ({
+  projectID,
+  status,
+}: ChangeProjectStatusParams): Promise<ChangeProjectStatusResponse> => {
+  const response = await baseAPI.put(`/projetos/${projectID}`, {
+    data: {
+      status,
+    },
+  });
 
   return response.data;
 };

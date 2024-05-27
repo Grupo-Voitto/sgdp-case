@@ -12,13 +12,24 @@ interface HeaderProps {
   progressInPercent?: number;
   projectAreaColor?: string;
   status: ProjectStatus;
+  onChangeStatus?: (status: ProjectStatus) => void;
 }
 
 export default function Header({
   progressInPercent = 10,
   projectAreaColor = '#CCC',
   status = ProjectStatus.IN_PROGRESS,
+  onChangeStatus = () => {},
 }: HeaderProps) {
+  const handleChangeStatus = (newStatus: ProjectStatus) => {
+    if (status === newStatus) {
+      onChangeStatus(ProjectStatus.IN_PROGRESS);
+      return;
+    }
+
+    onChangeStatus(newStatus);
+  };
+
   return (
     <Box padding={12}>
       <View style={styles.container}>
@@ -44,8 +55,13 @@ export default function Header({
           checked={status === ProjectStatus.FINISHED}
           text="Concluir"
           color={projectAreaColor}
+          onPress={() => handleChangeStatus(ProjectStatus.FINISHED)}
         />
-        <CheckBox checked={status === ProjectStatus.FROZEN} text="Congelar" />
+        <CheckBox
+          checked={status === ProjectStatus.FROZEN}
+          text="Congelar"
+          onPress={() => handleChangeStatus(ProjectStatus.FROZEN)}
+        />
       </View>
     </Box>
   );

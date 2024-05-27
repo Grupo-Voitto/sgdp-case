@@ -16,6 +16,7 @@ export default function CheckBox({
   checked = false,
   text,
   color = '#FFF',
+  onPress,
 }: CheckBoxProps) {
   const checkboxStyle = StyleSheet.flatten([
     styles.checkbox,
@@ -23,7 +24,10 @@ export default function CheckBox({
   ]);
 
   return (
-    <TouchableOpacity activeOpacity={0.8} style={styles.container}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      style={styles.container}
+      onPress={onPress}>
       <View style={checkboxStyle}>
         {checked && <Ionicons name="checkmark-sharp" size={12} color={color} />}
       </View>
