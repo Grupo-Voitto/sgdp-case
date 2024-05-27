@@ -1,61 +1,24 @@
 import React from 'react';
-import {View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+
 import {styles} from './styles';
 import Text from 'src/components/Text';
 import Box from 'src/components/Box';
 import {Project} from 'src/types';
 import {hexColorWithOpacity} from 'src/utils/colors';
 
-const DUMMY_PROJECTS: Project[] = [
-  {
-    id: 'chatbot',
-    name: 'ChatBot',
-    area: {
-      id: 'ti',
-      name: 'TI',
-      color: '#FCB859',
-    },
-    progressInPercent: 46,
-  },
-  {
-    id: 'sales-flow',
-    name: 'Fluxo de Vendas',
-    area: {
-      id: 'marketing',
-      name: 'Marketing',
-      color: '#A9DFD8',
-    },
-    progressInPercent: 17,
-  },
-  {
-    id: 'turnover-off',
-    name: 'Turnover OFF',
-    area: {
-      id: 'rh',
-      name: 'RH',
-      color: '#28AEF3',
-    },
-    progressInPercent: 19,
-  },
-  {
-    id: 'cadence',
-    name: 'Cadência',
-    area: {
-      id: 'comercial',
-      name: 'Comercial',
-      color: '#F2C8ED',
-    },
-    progressInPercent: 29,
-  },
-];
-
 interface TopProjectsProps {
   projects?: Project[];
 }
 
-export default function TopProjects({
-  projects = DUMMY_PROJECTS,
-}: TopProjectsProps) {
+export default function TopProjects({projects = []}: TopProjectsProps) {
+  const navigation = useNavigation();
+
+  const handleProjectPress = (projectID: string | number) => {
+    navigation.navigate('ProjectDetail', {projectID});
+  };
+
   return (
     <Box padding={16}>
       <Text style={styles.title}>Top Projetos</Text>
@@ -67,7 +30,11 @@ export default function TopProjects({
         </View>
         {projects.map((project, index) => {
           return (
-            <View key={project.id} style={styles.rowContainer}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              key={project.id}
+              style={styles.rowContainer}
+              onPress={() => handleProjectPress(project.id)}>
               <Text style={[styles.orderText, styles.orderCell]}>
                 {`${index + 1}`.padStart(2, '0')}
               </Text>
@@ -92,7 +59,7 @@ export default function TopProjects({
                     {color: project.area.color},
                   ]}>{`${project.progressInPercent}%`}</Text>
               </View>
-            </View>
+            </TouchableOpacity>
           );
         })}
       </View>
