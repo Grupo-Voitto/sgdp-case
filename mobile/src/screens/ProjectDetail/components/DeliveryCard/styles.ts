@@ -5,27 +5,26 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 16,
+    gap: 8,
   },
   leftContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     columnGap: 12,
+    flexShrink: 1,
   },
   projectName: {
     fontSize: 16,
     fontWeight: 500,
     color: '#FFF',
+    flexShrink: 1,
   },
   rightContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+    alignItems: 'flex-end',
+    gap: 4,
   },
-  textContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
+  textContainer: {},
   iconContainer: {
     height: 36,
     width: 36,

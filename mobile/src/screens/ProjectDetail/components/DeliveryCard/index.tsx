@@ -7,6 +7,7 @@ import {styles} from './styles';
 import Text from 'src/components/Text';
 import {ProjectInfo} from 'src/types';
 import ProjectAreaIcon from 'src/components/ProjectAreaIcon';
+import { formatDate } from 'src/utils';
 
 interface DeliveryCardProps {
   expiresIn?: string;
@@ -27,19 +28,19 @@ export default function DeliveryCard(props: DeliveryCardProps) {
           <Text style={styles.projectName}>{props?.projectInfo?.name}</Text>
         </View>
         <View style={styles.rightContainer}>
-          <View style={styles.textContainer}>
-            <View style={styles.iconContainer}>
-              <Ionicons name="warning" size={28} color="#FFF" />
-            </View>
-            <Text style={styles.text}>{'Data de\nentrega: '}</Text>
+          <View style={styles.iconContainer}>
+            <Ionicons name="warning" size={28} color="#FFF" />
           </View>
-          <Text
-            style={[
-              styles.dateText,
-              {color: props?.projectAreaColor || '#FFF'},
-            ]}>
-            {props?.expiresIn}
-          </Text>
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>{'Data de entrega'}</Text>
+            <Text
+              style={[
+                styles.dateText,
+                {color: props?.projectAreaColor || '#FFF'},
+              ]}>
+              {formatDate(props?.expiresIn)}
+            </Text>
+          </View>
         </View>
       </View>
     </Box>
