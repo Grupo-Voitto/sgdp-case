@@ -83,6 +83,12 @@ export const taskStyles = StyleSheet.create({
     flexDirection: 'row',
     padding: 16,
     gap: 8,
+    justifyContent: 'space-between',
+  },
+  taskLeftContainer: {
+    flexDirection: 'row',
+    gap: 8,
+    flexShrink: 1,
   },
   taskText: {
     fontSize: 14,

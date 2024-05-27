@@ -82,14 +82,16 @@ export default function ProjectInfoCard(props: ProjectInfoCardProps) {
 
               return (
                 <View key={task.id} style={taskStyles.taskContainer}>
-                  <Pressable style={checkStyles}>
-                    {task.done && (
-                      <Ionicons name="checkmark" size={12} color="#FFF" />
-                    )}
-                  </Pressable>
-                  <Text style={taskStyles.taskText}>{task.description}</Text>
+                  <View style={taskStyles.taskLeftContainer}>
+                    <Pressable style={checkStyles}>
+                      {task.done && (
+                        <Ionicons name="checkmark" size={12} color="#FFF" />
+                      )}
+                    </Pressable>
+                    <Text style={taskStyles.taskText}>{task.description}</Text>
+                  </View>
                   <Pressable style={taskStyles.deleteIconContainer}>
-                    <Ionicons name="trash" size={28} color="#808080s" />
+                    <Ionicons name="trash" size={20} color="#808080s" />
                   </Pressable>
                 </View>
               );
