@@ -62,5 +62,9 @@ routes.post('/projeto/tarefas', TarefasController.create);
  * Busca todos os membros da plataforma
 */
 routes.get('/membros', MembrosController.index);
+/**
+ * Cria membros na plataforma
+*/
+routes.post('/membros', MembrosController.create);
 
 export default routes;

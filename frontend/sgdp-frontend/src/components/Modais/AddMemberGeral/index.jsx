@@ -8,26 +8,26 @@ import { Modal } from 'react-responsive-modal';
 import { local } from '../../../services/api';
 
 
-const AddMember = ({ open, onCloseModal, id_projeto, membros }) => {
-  const [id_member, setIdMember] = useState(null);
+const AddMemberGeral = ({ open, onCloseModal }) => {
+  const [nome, setNome] = useState("");
+  const [funcao, setFuncao] = useState("");
   const navigate = useNavigate();
 
   async function handleAdd() {
 
     try {
-      if (id_member && id_projeto) {
-        await local.post("/projeto/membros", {
-          id_projeto,
-          id_membro: id_member,
-        });
-        navigate(0);
-        onCloseModal();
-      }
+      await local.post("/membros", {
+        nome,
+        funcao,
+      });
+      navigate(0);
+      onCloseModal();
     } catch (error) {
       alert("Um erro aconteceu");
       console.error(error)
     }
   }
+
   return (
     <Container>
       <Modal
@@ -41,7 +41,8 @@ const AddMember = ({ open, onCloseModal, id_projeto, membros }) => {
         <Content>
 
           <h2>Adicionar novo membro</h2>
-          <InputSelect setIdMember={setIdMember} membros={membros} />
+          <input type="text" value={nome} placeholder="Nome do membro" onChange={(e) => setNome(e.target.value)} />
+          <input type="text" value={funcao} placeholder="Função/cargo" onChange={(e) => setFuncao(e.target.value)} />
           <button onClick={() => handleAdd()}>Adicionar</button>
         </Content>
       </Modal>
@@ -49,4 +50,4 @@ const AddMember = ({ open, onCloseModal, id_projeto, membros }) => {
   )
 }
 
-export default AddMember;
+export default AddMemberGeral;
