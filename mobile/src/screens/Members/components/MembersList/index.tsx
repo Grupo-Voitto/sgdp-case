@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View} from 'react-native';
 
 import Box from 'src/components/Box';
@@ -8,6 +8,7 @@ import {ProjectMember} from 'src/types';
 import FlatList from 'src/components/FlatList';
 import HorizontalDivider from 'src/components/HorizontalDivider';
 import Button from 'src/components/Button';
+import CreateMemberModal from '../CreateMemberModal';
 
 interface MemberItemProps extends ProjectMember {}
 
@@ -33,12 +34,18 @@ interface MembersListProps {
 }
 
 export default function MembersList({members = []}: MembersListProps) {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const toggleModalVisibility = () => {
+    setIsModalVisible(prev => !prev);
+  };
+
   return (
     <Box padding={16}>
       <View style={styles.container}>
         <View style={styles.titleContainer}>
           <Text style={styles.title}>Lista de membros</Text>
-          <Button>Novo</Button>
+          <Button onPress={toggleModalVisibility}>Novo</Button>
         </View>
         <View style={styles.rowsContainer}>
           <View style={styles.row}>
@@ -58,6 +65,10 @@ export default function MembersList({members = []}: MembersListProps) {
           />
         </View>
       </View>
+      <CreateMemberModal
+        visible={isModalVisible}
+        onClose={toggleModalVisibility}
+      />
     </Box>
   );
 }
