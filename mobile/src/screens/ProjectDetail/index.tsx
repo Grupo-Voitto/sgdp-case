@@ -13,6 +13,7 @@ import ScrollView from 'src/components/ScrollView';
 import ProjectInfoCard from './components/ProjectInfoCard';
 import {ProjectsAPI} from 'src/services/api';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import FullScreenLoader from 'src/components/FullScreenLoader';
 
 export default function ProjectDetail({route}: NativeStackScreenProps<{}>) {
   const projectID = route.params.projectID;
@@ -23,6 +24,7 @@ export default function ProjectDetail({route}: NativeStackScreenProps<{}>) {
   const [status, setStatus] = useState<ProjectStatus>(
     ProjectStatus.IN_PROGRESS,
   );
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!projectID) {
@@ -30,6 +32,8 @@ export default function ProjectDetail({route}: NativeStackScreenProps<{}>) {
     }
 
     const getProject = async () => {
+      setLoading(true);
+
       const response = await ProjectsAPI.getProjectDetail({projectID});
 
       const projectInfo: ProjectInfo = {
@@ -62,10 +66,16 @@ export default function ProjectDetail({route}: NativeStackScreenProps<{}>) {
       setMembers(projectMembers);
       setTasks(projectTasks);
       setStatus(response.status);
+
+      setLoading(false);
     };
 
     getProject();
-  }, [projectID]);
+  }, [projectID, status]);
+
+  if (loading) {
+    return <FullScreenLoader text="Carregando projeto ..." />;
+  }
 
   return (
     <ScreenContainer shouldGoBack>
