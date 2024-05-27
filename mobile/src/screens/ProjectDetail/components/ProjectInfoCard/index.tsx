@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, StyleSheet, View} from 'react-native';
+import {Pressable, StyleSheet, TouchableOpacity, View} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Box from 'src/components/Box';
@@ -11,16 +11,43 @@ interface ProjectInfoCardProps {
   projectInfo?: ProjectInfo;
   members?: ProjectMember[];
   tasks?: ProjectTask[];
+  onChangeTaskStatus?: ({
+    taskID,
+    done,
+  }: {
+    taskID: string | number;
+    done: boolean;
+  }) => void;
 }
 
-export default function ProjectInfoCard(props: ProjectInfoCardProps) {
+export default function ProjectInfoCard({
+  onChangeTaskStatus = () => {},
+  ...props
+}: ProjectInfoCardProps) {
   const completedTasks = props?.tasks?.filter(task => task.done).length;
   const tasksLength = props?.tasks?.length;
+
+  const sortedTasks = props?.tasks?.sort((prev, current) => {
+    if (prev.done) {
+      return 1;
+    }
+
+    if (current.done) {
+      return -1;
+    }
+
+    return 0;
+  });
 
   return (
     <Box padding={16}>
       <View style={styles.container}>
-        <Text style={styles.title}>Descrição:</Text>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Descrição:</Text>
+          <TouchableOpacity activeOpacity={0.8}>
+            <Text style={styles.editDescriptionButtonText}>Editar</Text>
+          </TouchableOpacity>
+        </View>
         <Text style={styles.description}>
           {props?.projectInfo?.description}
         </Text>
@@ -36,18 +63,26 @@ export default function ProjectInfoCard(props: ProjectInfoCardProps) {
                 key={member.id}>
                 <Text style={styles.memberName}>{member.name}</Text>
                 <Pressable style={styles.memberIcon}>
-                  <Ionicons name="close" size={28} color="#000" />
+                  <Ionicons name="close-outline" size={24} color="#000" />
                 </Pressable>
               </View>
             );
           })}
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={[
+              styles.addMemberButton,
+              {borderColor: props?.projectInfo?.area?.color},
+            ]}>
+            <Text style={styles.addMemberButtonText}>adicionar membro</Text>
+          </TouchableOpacity>
         </View>
         <View style={taskStyles.container}>
           <View style={taskStyles.topContainer}>
             <View style={taskStyles.titleContainer}>
               <Text style={taskStyles.title}>Tarefas criadas</Text>
               <View style={[taskStyles.titleChip, taskStyles.titleChipRounded]}>
-                <Text style={taskStyles.titleChipText}>{completedTasks}</Text>
+                <Text style={taskStyles.titleChipText}>{tasksLength}</Text>
               </View>
             </View>
             <View style={taskStyles.titleContainer}>
@@ -67,7 +102,7 @@ export default function ProjectInfoCard(props: ProjectInfoCardProps) {
             </View>
           </View>
           <View style={taskStyles.tasksContainer}>
-            {props?.tasks?.map(task => {
+            {sortedTasks?.map(task => {
               const checkedStyles = StyleSheet.flatten([
                 taskStyles.taskChecked,
                 {backgroundColor: props?.projectInfo?.area?.color},
@@ -83,15 +118,28 @@ export default function ProjectInfoCard(props: ProjectInfoCardProps) {
               return (
                 <View key={task.id} style={taskStyles.taskContainer}>
                   <View style={taskStyles.taskLeftContainer}>
-                    <Pressable style={checkStyles}>
+                    <Pressable
+                      style={checkStyles}
+                      onPress={() =>
+                        onChangeTaskStatus({
+                          taskID: task.id,
+                          done: !task.done,
+                        })
+                      }>
                       {task.done && (
                         <Ionicons name="checkmark" size={12} color="#FFF" />
                       )}
                     </Pressable>
-                    <Text style={taskStyles.taskText}>{task.description}</Text>
+                    <Text
+                      style={[
+                        taskStyles.taskText,
+                        task.done ? taskStyles.taskCompletedText : {},
+                      ]}>
+                      {task.description}
+                    </Text>
                   </View>
                   <Pressable style={taskStyles.deleteIconContainer}>
-                    <Ionicons name="trash" size={20} color="#808080s" />
+                    <Ionicons name="trash" size={20} color="#808080" />
                   </Pressable>
                 </View>
               );

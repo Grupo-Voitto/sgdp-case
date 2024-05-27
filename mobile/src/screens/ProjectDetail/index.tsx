@@ -79,6 +79,26 @@ export default function ProjectDetail({route}: NativeStackScreenProps<{}>) {
     ProjectsAPI.changeProjectStatus({projectID, status: newStatus});
   };
 
+  const handleChangeTaskStatus = ({
+    taskID,
+    done,
+  }: {
+    taskID: string | number;
+    done: boolean;
+  }) => {
+    setTasks(prev => {
+      return prev?.map(task => {
+        if (task.id === taskID) {
+          return {...task, done};
+        }
+
+        return task;
+      });
+    });
+
+    ProjectsAPI.changeProjectTaskStatus({projectID, taskID: +taskID, done});
+  };
+
   if (loading) {
     return <FullScreenLoader text="Carregando projeto ..." />;
   }
@@ -101,6 +121,7 @@ export default function ProjectDetail({route}: NativeStackScreenProps<{}>) {
           projectInfo={project}
           members={members}
           tasks={tasks}
+          onChangeTaskStatus={handleChangeTaskStatus}
         />
       </ScrollView>
     </ScreenContainer>

@@ -27,6 +27,7 @@ export const projectStyles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 12,
+    gap: 8,
   },
   logo: {},
   nameContainer: {

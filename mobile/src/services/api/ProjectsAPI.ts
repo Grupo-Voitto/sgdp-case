@@ -108,3 +108,23 @@ export const changeProjectStatus = async ({
 
   return response.data;
 };
+
+export interface ChangeProjectTaskStatusParams {
+  projectID: number;
+  taskID: number;
+  done: boolean;
+}
+
+export interface ChangeProjectTaskStatusResponse {}
+
+export const changeProjectTaskStatus = async ({
+  projectID,
+  taskID,
+  done,
+}: ChangeProjectTaskStatusParams): Promise<
+  ChangeProjectTaskStatusResponse | undefined
+> => {
+  console.log('Implementar o endpoint para atualizar a tarefa');
+
+  return;
+};

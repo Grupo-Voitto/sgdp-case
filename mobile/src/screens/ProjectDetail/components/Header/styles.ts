@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   },
   progressBar: {
     height: 20,
-    backgroundColor: '#FFF',
+    backgroundColor: '#18191F',
     borderRadius: 20,
     width: 80,
   },

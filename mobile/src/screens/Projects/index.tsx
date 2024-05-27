@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 import ScreenContainer from 'src/components/ScreenContainer';
 import ScrollView from 'src/components/ScrollView';
@@ -7,21 +7,24 @@ import FinishedProjectsCard from './components/FinishedProjectsCard';
 import FrozenProjectsCard from './components/FrozenProjectsCard';
 import {Project} from 'src/types';
 import {ProjectsAPI} from 'src/services/api';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function Projects() {
   const [projects, setProjects] = useState<
     ProjectsAPI.GetProjectsResponse | undefined
   >();
 
-  useEffect(() => {
-    const getProjects = async () => {
-      const response = await ProjectsAPI.getProjects();
+  const getProjects = useCallback(async () => {
+    const response = await ProjectsAPI.getProjects();
 
-      setProjects(response);
-    };
-
-    getProjects();
+    setProjects(response);
   }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      getProjects();
+    }, [getProjects]),
+  );
 
   const inProgressProjects: Project[] =
     projects?.em_andamento?.map(project => ({

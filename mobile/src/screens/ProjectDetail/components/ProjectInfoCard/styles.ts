@@ -2,9 +2,21 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {},
+  titleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
   title: {
     fontSize: 16,
     fontWeight: '600',
+    color: '#FFF',
+  },
+  editDescriptionButtonText: {
+    fontSize: 14,
+    fontWeight: 500,
+    textDecorationLine: 'underline',
     color: '#FFF',
   },
   description: {
@@ -24,7 +36,8 @@ export const styles = StyleSheet.create({
   memberChip: {
     flexDirection: 'row',
     backgroundColor: '#FFF',
-    paddingHorizontal: 16,
+    paddingHorizontal: 8,
+    paddingRight: 4,
     paddingVertical: 4,
     alignItems: 'center',
     borderRadius: 100,
@@ -36,6 +49,18 @@ export const styles = StyleSheet.create({
     color: '#000',
   },
   memberIcon: {},
+  addMemberButton: {
+    borderWidth: 1.5,
+    borderColor: '#FFF',
+    borderRadius: 100,
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+  },
+  addMemberButtonText: {
+    fontSize: 14,
+    fontWeight: 500,
+    color: '#FFF',
+  },
 });
 
 export const taskStyles = StyleSheet.create({
@@ -95,6 +120,9 @@ export const taskStyles = StyleSheet.create({
     fontWeight: 500,
     color: '#FFF',
     flexShrink: 1,
+  },
+  taskCompletedText: {
+    textDecorationLine: 'line-through',
   },
   taskUnchecked: {
     height: 20,
