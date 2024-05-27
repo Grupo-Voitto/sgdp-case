@@ -5,31 +5,33 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Box from 'src/components/Box';
 import {styles, taskStyles} from './styles';
 import Text from 'src/components/Text';
-import {ProjectInfo} from 'src/types';
+import {ProjectInfo, ProjectMember, ProjectTask} from 'src/types';
 
 interface ProjectInfoCardProps {
-  projectInfo: ProjectInfo;
+  projectInfo?: ProjectInfo;
+  members?: ProjectMember[];
+  tasks?: ProjectTask[];
 }
 
 export default function ProjectInfoCard(props: ProjectInfoCardProps) {
-  const completedTasks = props.projectInfo.tasks.filter(
-    task => task.done,
-  ).length;
-  const tasksLength = props.projectInfo.tasks.length;
+  const completedTasks = props?.tasks?.filter(task => task.done).length;
+  const tasksLength = props?.tasks?.length;
 
   return (
     <Box padding={16}>
       <View style={styles.container}>
         <Text style={styles.title}>Descrição:</Text>
-        <Text style={styles.description}>{props.projectInfo.description}</Text>
+        <Text style={styles.description}>
+          {props?.projectInfo?.description}
+        </Text>
         <View style={styles.membersContainer}>
           <Text style={styles.title}>Time: </Text>
-          {props.projectInfo.members.map(member => {
+          {props?.members?.map(member => {
             return (
               <View
                 style={[
                   styles.memberChip,
-                  {backgroundColor: props.projectInfo.area.color},
+                  {backgroundColor: props?.projectInfo?.area?.color},
                 ]}
                 key={member.id}>
                 <Text style={styles.memberName}>{member.name}</Text>
@@ -52,7 +54,7 @@ export default function ProjectInfoCard(props: ProjectInfoCardProps) {
               <Text
                 style={[
                   taskStyles.title,
-                  {color: props.projectInfo.area.color},
+                  {color: props?.projectInfo?.area?.color},
                 ]}>
                 Concluídas
               </Text>
@@ -65,15 +67,15 @@ export default function ProjectInfoCard(props: ProjectInfoCardProps) {
             </View>
           </View>
           <View style={taskStyles.tasksContainer}>
-            {props.projectInfo.tasks.map(task => {
+            {props?.tasks?.map(task => {
               const checkedStyles = StyleSheet.flatten([
                 taskStyles.taskChecked,
-                {backgroundColor: props.projectInfo.area.color},
+                {backgroundColor: props?.projectInfo?.area?.color},
               ]);
 
               const unCheckedStyles = StyleSheet.flatten([
                 taskStyles.taskUnchecked,
-                {borderColor: props.projectInfo.area.color},
+                {borderColor: props?.projectInfo?.area?.color},
               ]);
 
               const checkStyles = task.done ? checkedStyles : unCheckedStyles;
