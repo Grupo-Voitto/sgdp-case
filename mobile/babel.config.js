@@ -5,13 +5,13 @@ module.exports = {
       'module-resolver',
       {
         root: ['./src'],
-        extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
+        extensions: ['.ios.js', '.android.js', '.js', '.jsx', '.json'],
         alias: {
           src: ['./src'],
         },
       },
     ],
     '@babel/plugin-transform-export-namespace-from',
-    'react-native-reanimated/plugin'
+    'react-native-reanimated/plugin',
   ],
 };
