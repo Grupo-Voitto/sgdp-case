@@ -38,6 +38,47 @@ class TarefasController {
 
 
   }
+  async delete(req, res) {
+    const {id} = req.params;
+
+    if(!id){
+      throw new Error("Dados ausentes");
+    }
+
+
+   const del =  await Tarefas.destroy({
+      where:{
+        id
+      }
+    });
+
+    if(del){
+      return res.json({msg: "Sucesso"});
+    }
+
+
+
+  }
+  async status(req, res) {
+    const {id} = req.params;
+
+    if(!id){
+      throw new Error("Dados ausentes");
+    }
+
+    const get_tarefa = await Tarefas.findByPk(id);
+
+    if(!get_tarefa){
+      throw new Error("Tarefa não existe");
+    }
+    await get_tarefa.update({
+      status: !get_tarefa.status
+    })
+
+
+    return res.json({msg: "Alterado com sucesso"});
+
+  }
 
 }
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from './styles';
+import ContentContruprime from '../../components/ContentContruprime';
 import ContentProjectTitle from '../../components/ContentProjectTitle';
 import SectionAllProjects from '../../components/SectionAllProjects';
 import { useParams, useSearchParams } from 'react-router-dom';
@@ -32,6 +33,7 @@ const Projetos = () => {
   }
   return (
     <Container>
+      <ContentContruprime />
       <ContentProjectTitle project={project} setProject={setProject} />
       <MainProject project={project} setProject={setProject} />
     </Container>

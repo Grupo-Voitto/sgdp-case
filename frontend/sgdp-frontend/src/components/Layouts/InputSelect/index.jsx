@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container } from './styles'
 import { local } from '../../../services/api';
 
-const InputSelect = ({ setIdMember, membros }) => {
+const InputSelect = ({ setIdMembro, membros }) => {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
@@ -10,7 +10,7 @@ const InputSelect = ({ setIdMember, membros }) => {
       const mb = await local.get("/membros");
       const payload_mb = mb.data;
       const payload = payload_mb
-        .filter(item => !(membros.map(elem => elem.id)).includes(item.id))
+        .filter(item => membros ? !(membros.map(elem => elem.id)).includes(item.id) : item)
         .map(elem => {
           return {
             id: elem.id,
@@ -30,7 +30,7 @@ const InputSelect = ({ setIdMember, membros }) => {
 
   return (
     <Container>
-      <select name="members" id="members" onChange={(e) => setIdMember(e.target.value)}>
+      <select name="members" id="members" onChange={(e) => setIdMembro(e.target.value)}>
         {
           members.map(item => {
             return (

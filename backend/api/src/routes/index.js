@@ -48,7 +48,7 @@ routes.post('/projeto/membros', ProjetoMembrosController.create);
 /**
  * Remover membros de um projeto
 */
-routes.delete('/projeto/membros', ProjetoMembrosController.delete);
+routes.delete('/projeto/membros/:id_membro', ProjetoMembrosController.delete);
 
 /**
  * Todas as tarefas de um projeto
@@ -58,6 +58,14 @@ routes.get('/projeto/tarefas/:id_projeto', TarefasController.index);
  * Criar Tarefa em Um projeto
 */
 routes.post('/projeto/tarefas', TarefasController.create);
+/**
+ * Remover Tarefa em Um projeto
+*/
+routes.delete('/projeto/tarefas/:id', TarefasController.delete);
+/**
+ * Altera status da tarefa
+*/
+routes.put('/projeto/tarefas/:id', TarefasController.status);
 /**
  * Busca todos os membros da plataforma
 */

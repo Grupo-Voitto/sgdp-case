@@ -13,7 +13,6 @@ const AddMember = ({ open, onCloseModal, id_projeto, membros }) => {
   const navigate = useNavigate();
 
   async function handleAdd() {
-
     try {
       if (id_member && id_projeto) {
         await local.post("/projeto/membros", {
@@ -41,7 +40,7 @@ const AddMember = ({ open, onCloseModal, id_projeto, membros }) => {
         <Content>
 
           <h2>Adicionar novo membro</h2>
-          <InputSelect setIdMember={setIdMember} membros={membros} />
+          <InputSelect setIdMembro={setIdMember} membros={membros} />
           <button onClick={() => handleAdd()}>Adicionar</button>
         </Content>
       </Modal>
