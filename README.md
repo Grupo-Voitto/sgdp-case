@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento de Projetos - TechX
 
-![contru-prime](https://github-production-user-asset-6210df.s3.amazonaws.com/54844857/334418820-e0553bad-3eb9-4d20-a056-5b7c185d3290.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240528%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240528T130449Z&X-Amz-Expires=300&X-Amz-Signature=770f3545b267aec451a9d889f801720a6664e770ed5291fb15deed77d95c786b&X-Amz-SignedHeaders=host&actor_id=54844857&key_id=0&repo_id=797207065)
+![contru-prime](https://github-production-user-asset-6210df.s3.amazonaws.com/54844857/334418820-e0553bad-3eb9-4d20-a056-5b7c185d3290.png)
 
 <p align="center">	
 <img  src="https://img.shields.io/static/v1?label=javascript&message=Linguagem primaria&color=yellow&style=for-the-badge&logo=javascript"/>
