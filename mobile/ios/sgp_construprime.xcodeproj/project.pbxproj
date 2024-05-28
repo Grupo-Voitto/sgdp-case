@@ -530,6 +530,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = sgp_construprime/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SGP Construprime";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -540,7 +541,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.sgp.contruprime;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.sgp.construprime;
 				PRODUCT_NAME = sgp_construprime;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -556,6 +557,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = sgp_construprime/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SGP Construprime";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -566,7 +568,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.sgp.contruprime;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.sgp.construprime;
 				PRODUCT_NAME = sgp_construprime;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
