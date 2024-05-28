@@ -98,14 +98,25 @@ npm start
 
 ### Configuração do Aplicativo Mobile
 
-#### 4.1. Instalar Dependências
+#### 4.1. Configurar ambiente
+Configure o ambiente de desenvolvimento seguindo o tutorial do site do React Native. [« LINK »](https://reactnative.dev/docs/set-up-your-environment)
+
+#### 4.2. Instalar Dependências
 ```bash
 cd mobile
 npm install
 ```
 #### 4.2 Iniciar o Aplicativo Mobile
 
-AJUSTA AQ  DIEGO
+- Android
+
+> Para iniciar o projeto no Android, pressione "a" quando abrir o servidor do React Native ou abra um outro terminal e rode ```npm run android```
+
+- iOS
+
+> Para iniciar o projeto no iOS, pressione "i" quando abrir o servidor do React Native ou abra um outro terminal e rode ```npm run ios```
+
+_Obs: Para rodar o projeto no iOS é necessário a utilização do um MacOS para gerar o build_
 
 #### Estrutura de Diretórios
 
@@ -125,9 +136,8 @@ repo-sgp-techx/
 │
 ├── mobile/
 │   ├── src/
-│   ├── public/
 │   ├── package.json
-│   └── .env
+│   └── index.js
 │
 └── README.md
 
