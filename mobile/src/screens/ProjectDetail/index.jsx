@@ -2,17 +2,10 @@ import React, {useEffect, useState} from 'react';
 
 import ScreenContainer from 'src/components/ScreenContainer';
 import Header from './components/Header';
-import {
-  ProjectInfo,
-  ProjectMember,
-  ProjectStatus,
-  ProjectTask,
-} from 'src/types';
 import DeliveryCard from './components/DeliveryCard';
 import ScrollView from 'src/components/ScrollView';
 import ProjectInfoCard from './components/ProjectInfoCard';
 import {ProjectsAPI} from 'src/services/api';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import FullScreenLoader from 'src/components/FullScreenLoader';
 
 export default function ProjectDetail({route}) {
@@ -21,9 +14,7 @@ export default function ProjectDetail({route}) {
   const [project, setProject] = useState();
   const [members, setMembers] = useState([]);
   const [tasks, setTasks] = useState();
-  const [status, setStatus] = useState(
-    ProjectStatus.IN_PROGRESS,
-  );
+  const [status, setStatus] = useState(1);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

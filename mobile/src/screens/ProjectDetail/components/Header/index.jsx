@@ -6,17 +6,16 @@ import {styles} from './styles';
 import Text from 'src/components/Text';
 import CheckBox from 'src/components/CheckBox';
 import {clampNumber} from 'src/utils';
-import {ProjectStatus} from 'src/types';
 
 export default function Header({
   progressInPercent = 10,
   projectAreaColor = '#CCC',
-  status = ProjectStatus.IN_PROGRESS,
+  status = 1,
   onChangeStatus = () => {},
 }) {
   const handleChangeStatus = (newStatus) => {
     if (status === newStatus) {
-      onChangeStatus(ProjectStatus.IN_PROGRESS);
+      onChangeStatus(1);
       return;
     }
 
@@ -45,15 +44,15 @@ export default function Header({
             ]}>{`${progressInPercent}%`}</Text>
         </View>
         <CheckBox
-          checked={status === ProjectStatus.FINISHED}
+          checked={status === 3}
           text="Concluir"
           color={projectAreaColor}
-          onPress={() => handleChangeStatus(ProjectStatus.FINISHED)}
+          onPress={() => handleChangeStatus(3)}
         />
         <CheckBox
-          checked={status === ProjectStatus.FROZEN}
+          checked={status === 1}
           text="Congelar"
-          onPress={() => handleChangeStatus(ProjectStatus.FROZEN)}
+          onPress={() => handleChangeStatus()}
         />
       </View>
     </Box>

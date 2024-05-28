@@ -2,7 +2,6 @@ import React from 'react';
 import Box from '../Box';
 import {Pressable, View} from 'react-native';
 import {projectStyles, styles} from './styles';
-import {Project} from 'src/types';
 import Text from 'src/components/Text';
 import {useNavigation} from '@react-navigation/native';
 import ProjectAreaIcon from '../ProjectAreaIcon';

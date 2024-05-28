@@ -8,7 +8,7 @@ import Box from '../Box';
 import {useNavigation} from '@react-navigation/native';
 
 export default function ScreenContainer(props) {
-  const navigation = useNavigation<DrawerNavigationProp<{}>>();
+  const navigation = useNavigation();
 
   const customStyles = {
     padding: 20,
