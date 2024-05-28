@@ -6,6 +6,7 @@ import Box from 'src/components/Box';
 import {styles, taskStyles} from './styles';
 import Text from 'src/components/Text';
 import {ProjectInfo, ProjectMember, ProjectTask} from 'src/types';
+import Button from 'src/components/Button';
 
 interface ProjectInfoCardProps {
   projectInfo?: ProjectInfo;
@@ -28,16 +29,12 @@ export default function ProjectInfoCard({
   const tasksLength = props?.tasks?.length;
 
   const sortedTasks = props?.tasks?.sort((prev, current) => {
-    if (prev.done) {
-      return 1;
-    }
-
-    if (current.done) {
-      return -1;
-    }
-
-    return 0;
+    return current.done ? -1 : 1;
   });
+
+  const handleCreateNewTask = () => {
+    console.log('Implemtentar lógica para criar tarefas');
+  };
 
   return (
     <Box padding={16}>
@@ -145,6 +142,13 @@ export default function ProjectInfoCard({
               );
             })}
           </View>
+          <Box marginTop={24}>
+            <Button
+              mainColor={props.projectInfo?.area?.color}
+              onPress={handleCreateNewTask}>
+              Criar nova tarefa
+            </Button>
+          </Box>
         </View>
       </View>
     </Box>

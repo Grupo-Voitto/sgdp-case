@@ -28,6 +28,7 @@ export interface ProjectTask {
   id: string | number;
   description: string;
   done: boolean;
+  updatedAt?: string;
 }
 
 export interface ProjectInfo extends Project {

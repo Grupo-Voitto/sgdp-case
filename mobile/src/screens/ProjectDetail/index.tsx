@@ -60,6 +60,7 @@ export default function ProjectDetail({route}: NativeStackScreenProps<{}>) {
         id: task.id,
         description: task.description,
         done: task.status === 1,
+        updatedAt: task.updated_at,
       }));
 
       setProject(projectInfo);

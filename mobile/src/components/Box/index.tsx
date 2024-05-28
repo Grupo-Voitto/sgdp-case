@@ -8,6 +8,7 @@ interface BoxProps extends PropsWithChildren {
   borderRadius?: number;
   style?: ViewStyle;
   gap?: number;
+  marginTop?: number;
 }
 
 export default function Box(props: BoxProps) {
@@ -16,6 +17,7 @@ export default function Box(props: BoxProps) {
     padding: typeof props?.padding === 'number' ? props.padding : 8,
     borderRadius: props?.borderRadius || 12,
     gap: props?.gap || 0,
+    marginTop: props?.marginTop || 0,
   };
 
   const customBoxStyle = StyleSheet.flatten([boxStyles, props?.style]);

@@ -8,6 +8,7 @@ import FrozenProjectsCard from './components/FrozenProjectsCard';
 import {Project} from 'src/types';
 import {ProjectsAPI} from 'src/services/api';
 import { useFocusEffect } from '@react-navigation/native';
+import Button from 'src/components/Button';
 
 export default function Projects() {
   const [projects, setProjects] = useState<
@@ -62,9 +63,14 @@ export default function Projects() {
       },
     })) || [];
 
+  const handleCreateProject = () => {
+    console.log('Implementar lógica para criar projetos');
+  };
+
   return (
     <ScreenContainer>
       <ScrollView rowGap={16}>
+        <Button onPress={handleCreateProject}>Criar Projeto</Button>
         <InProgressProjectsCard projects={inProgressProjects} />
         <FinishedProjectsCard projects={finishedProjects} />
         <FrozenProjectsCard projects={frozenProjects} />
