@@ -10,7 +10,6 @@ const SectionAllProjects = () => {
     async function getProjects() {
       const project = await local.get("projetos");
       if (project) {
-        console.log(project.data)
         setProjetos(project.data);
       }
     }

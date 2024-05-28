@@ -5,17 +5,31 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   gap:1rem;
-  p {
+  div.button-side-bar {
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
     border-radius: 5px;
     background-color: var(--color-background-secondary);
-    padding: 1rem;
+    padding: 0 1rem;
     width: 100%;
-    font-weight: bold;
-    color:#FFF;
-    font-weight: normal;
-    strong {
+    svg{
+      color: #FFF;
+      width: 1.6rem;
+      height: 1.6rem;
+      display: none;
+    }
+    p {
+      padding: 1rem;
+      width: 100%;
+      text-align: ${props => props.openSide ? "right" :"left"};
+      font-weight: bold;
+      color:#FFF;
       font-weight: normal;
-      color: var(--color-primary);
+      strong {
+        font-weight: normal;
+        color: var(--color-primary);
+      }
     }
   }
   span{
@@ -36,6 +50,16 @@ export const Container = styled.div`
 
   @media(max-width: 1200px){
     flex-direction: column;
+    div.button-side-bar {
+      svg {
+        display: flex;
+      }
+      p {
+        text-align: right;
+
+      }
+
+    }
     span{
       display: none;
     }

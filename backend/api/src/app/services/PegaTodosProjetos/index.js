@@ -93,8 +93,6 @@ class PegaTodosProjetos {
   }
   async dashboard() {
     const projetos = await Projetos.findAll({ attributes: ['id', 'title', 'status', 'area'] });
-
-
     const areas = await Areas.findAll();
 
     const tarefas_projeto = await Promise.all(
@@ -118,11 +116,14 @@ class PegaTodosProjetos {
     );
 
 
-    const top_projetos = tarefas_projeto.sort((a, b) => {
+    const top_projetos = tarefas_projeto
+    .filter(elem => elem.status != 0)
+    .sort((a, b) => {
       return b.progresso - a.progresso;
     }).filter((_, index) => index < 4);
 
-    const em_andamento = tarefas_projeto.filter(item => item.status == 2)
+    const em_andamento = tarefas_projeto.filter(item => item.status == 1).sort((a, b) => {
+      return b.progresso - a.progresso});
 
 
     return {

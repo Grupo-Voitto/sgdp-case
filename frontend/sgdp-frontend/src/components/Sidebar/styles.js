@@ -8,8 +8,13 @@ export const Container = styled.div`
   height: 100%;
   position:fixed;
   top:0;
+  z-index: 1;
   @media(max-width:650px){
-    display:none;
+    /* display:none; */
+    width: 50vw;
+    transition: var(--transition);
+    left: ${props => props.open ? "0" : "-50vw"};
+    top: 4rem;
   }
 `;
 

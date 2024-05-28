@@ -54,9 +54,7 @@ class ProjetoController {
     }
 
 
-    const create_project = await projeto.update({
-      ...data
-    });
+    const create_project = await projeto.update(data);
 
     return res.json(create_project);
   }

@@ -44,7 +44,9 @@ export const ContentTeam = styled.div`
     gap:.5rem;
     span.add-member{
       font-size: .6rem;
-
+      border-radius: 1rem;
+      padding: .2rem .3rem;
+      border: 1px solid ${props => props.color};
     }
     &:hover{
       cursor: pointer;
@@ -71,6 +73,11 @@ export const MemberComponent = styled.div`
 `;
 export const ContentTasks = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction:column;
+  align-items:start;
+  justify-content:center;
+  gap: 1rem;
 
 `;
 export const ContentHeader = styled.div`
@@ -101,7 +108,8 @@ export const Task = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 1rem;
-  margin-top: 2rem;
+  width: 100%;
+  /* margin-top: 2rem; */
   background:var(--color-background-tertiary);
   padding: 1rem .5rem;
   border-radius: 6px;

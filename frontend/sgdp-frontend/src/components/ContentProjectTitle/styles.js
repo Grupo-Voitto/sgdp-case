@@ -140,6 +140,9 @@ export const ContainerDateEnd= styled.div`
   @media(max-width: 1200px){
     height: 3.5rem;
     justify-content:center;
+    padding: 0 1rem;
+    max-width: 100%;
+
   }
 `;
 

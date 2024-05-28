@@ -1,19 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  min-width: 8rem;
   background: var(--color-background-secondary);
   display: flex;
   flex-direction: column;
   align-items:start;
   justify-content: space-between;
   height: 100%;
-  padding: 1rem;
-  max-width: 15rem;
+  padding: 1rem 2rem;
   width: 100%;
   border-radius: 6px;
   h3 {
-    max-width: 15rem;
     font-size:.99rem;
     color: #FFF;
     font-weight:500;

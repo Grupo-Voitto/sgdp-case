@@ -1,22 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Container, LinkButton } from './styles';
 import { RiHome2Fill } from 'react-icons/ri'
 import { FaUserAlt } from 'react-icons/fa'
 import { BsBarChartFill } from 'react-icons/bs'
+import { SideBarContext } from '../../SidebarContext';
+
 const Sidebar = () => {
   const [active, setActive] = useState("dashboard");
+
+  const { openSide } = useContext(SideBarContext);
 
   useEffect(() => {
     if (window.location?.href) {
       const href = window.location.pathname;
-      if (href === "/projetoss") setActive("projetos");
+      if (href === "/projetos") setActive("projetos");
       if (href === "/") setActive("dashboard");
       if (href === "/membros") setActive("membros");
     }
   }, [])
 
   return (
-    <Container>
+    <Container open={openSide}>
       <LinkButton href="/" active={active === "dashboard"}>
         <RiHome2Fill />
         <span>Dashboard</span>

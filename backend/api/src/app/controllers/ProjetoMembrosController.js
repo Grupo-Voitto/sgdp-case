@@ -46,7 +46,8 @@ class ProjetoMembrosController {
   }
 
   async delete(req, res) {
-    const {id_membro,id_projeto} = req.query;
+    const {id_projeto} = req.query;
+    const {id_membro} = req.params;
 
     const projeto_excluido = await ProjetosMembros.destroy({
       where: {

@@ -7,7 +7,7 @@ export const MainContainer = styled.div`
   height: 100%;
   position: relative;
   div#mainDiv{
-    width: 100%;
+    width: calc(100% - 10rem);
     margin-left:10rem;
   }
   @media(max-width:650px){

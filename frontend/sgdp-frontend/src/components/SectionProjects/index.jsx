@@ -8,7 +8,6 @@ const SectionProjects = ({ andamento }) => {
 
   return (
     <Container>
-      {console.log(andamento)}
       <ProjectContainer>
         <Content>
           <h2>Projetos em Andamento</h2>
