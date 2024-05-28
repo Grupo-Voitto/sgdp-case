@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento de Projetos - TechX
 
-![contru-prime](https://github.com/Grupo-Voitto/sgdp-case/assets/54844857/600e8730-85a2-4077-a940-09ba9bcf4dff)
+![constru-prime](https://github.com/Grupo-Voitto/sgdp-case/assets/54844857/600e8730-85a2-4077-a940-09ba9bcf4dff)
 
 <p align="center">	
 <img  src="https://img.shields.io/static/v1?label=javascript&message=Linguagem primária&color=yellow&style=for-the-badge&logo=javascript"/>
@@ -106,6 +106,11 @@ Configure o ambiente de desenvolvimento seguindo o tutorial do site do React Nat
 cd mobile
 npm install
 ```
+
+- iOS
+
+Após a instalação das dependências, em um MacOS, entre na pasta ios com `cd ios` e rode `pod install` para configurar as dependências no iOS
+
 #### 4.2 Iniciar o Aplicativo Mobile
 
 - Android
@@ -116,7 +121,10 @@ npm install
 
 > Para iniciar o projeto no iOS, pressione "i" quando abrir o servidor do React Native ou abra um outro terminal e rode ```npm run ios```
 
-_Obs: Para rodar o projeto no iOS é necessário a utilização do um MacOS para gerar o build_
+#### 4.3 Considerações finais
+- Para rodar o projeto no iOS é necessário a utilização do um MacOS com XCode instalado para gerar o build
+- Em caso de problemas para rodar o aplicativo, teste executar o servidor do React Native com `npx react-native start --reset-cache`, para limpar o cache do React Native, e tente rodar novamente.
+
 
 #### Estrutura de Diretórios
 
