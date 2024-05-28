@@ -6,6 +6,7 @@
 <img  src="https://img.shields.io/static/v1?label=javascript&message=Linguagem primária&color=yellow&style=for-the-badge&logo=javascript"/>
 <img  src="https://img.shields.io/static/v1?label=node&message=Run Time Javascript&color=green&style=for-the-badge&logo=node.js"/>
 <img  src="https://img.shields.io/static/v1?label=react&message=Biblioteca Frontend&color=blue&style=for-the-badge&logo=react"/>
+<img  src="https://img.shields.io/static/v1?label=react%20native&message=Biblioteca%20Mobile&color=blue&style=for-the-badge&logo=react"/>
 <img  src="https://img.shields.io/static/v1?label=mysql&message=SGBD&color=blue&style=for-the-badge&logo=mysql"/>
 </p>
 
