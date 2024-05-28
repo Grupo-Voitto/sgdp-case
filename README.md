@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento de Projetos - TechX
 
-![contru-prime](https://github-production-user-asset-6210df.s3.amazonaws.com/54844857/334418820-e0553bad-3eb9-4d20-a056-5b7c185d3290.png)
+![contru-prime](https://github.com/Grupo-Voitto/sgdp-case/assets/54844857/600e8730-85a2-4077-a940-09ba9bcf4dff)
 
 <p align="center">	
 <img  src="https://img.shields.io/static/v1?label=javascript&message=Linguagem primaria&color=yellow&style=for-the-badge&logo=javascript"/>
